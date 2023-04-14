@@ -21,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -99,8 +100,10 @@ public class CommentController {
                     description = "No Comments Found",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/")
-    public Page<GetCommentDto> getAll(@RequestParam(value = "search", defaultValue = "") String search,
+    public Page<GetCommentDto> getAllComments(@RequestParam(value = "search", defaultValue = "") String search,
                                       @PageableDefault(size = 15, page = 0) Pageable pageable) {
 
         List<SearchCriteria> params = SearchCriteriaExtractor.extractSearchCriteriaList(search);
@@ -131,8 +134,10 @@ public class CommentController {
                     description = "No Comment Found",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
-    public GetCommentDto getById(@PathVariable Long id) {
+    public GetCommentDto getCommentById(@PathVariable Long id) {
 
 
         return GetCommentDto.fromComment(commentService.findById(id));
@@ -161,8 +166,10 @@ public class CommentController {
                     description = "No Comment Creation Request",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('USER')")
     @PostMapping("/")
-    public ResponseEntity<GetCommentDto> createNewNote(@Valid @RequestBody NewCommentDto comment, @AuthenticationPrincipal User user) {
+    public ResponseEntity<GetCommentDto> createNewComment(@Valid @RequestBody NewCommentDto comment, @AuthenticationPrincipal User user) {
 
         Comment created = commentService.save(comment,user);
 

@@ -2,6 +2,7 @@ package com.trianasalesianos.dam.Soccer.Football.user.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.trianasalesianos.dam.Soccer.Football.comment.model.Comment;
+import com.trianasalesianos.dam.Soccer.Football.league.model.League;
 import com.trianasalesianos.dam.Soccer.Football.post.model.Post;
 import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
 import com.trianasalesianos.dam.Soccer.Football.utils.SetRoleAttributeConverter;
@@ -64,6 +65,10 @@ public class User implements UserDetails {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @Builder.Default
     private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @Builder.Default
+    private List<League> leagues = new ArrayList<>();
 
     @Builder.Default
     private boolean accountNonExpired = true;

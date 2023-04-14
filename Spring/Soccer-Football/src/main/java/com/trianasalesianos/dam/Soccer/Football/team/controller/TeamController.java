@@ -21,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -91,8 +92,10 @@ public class TeamController {
                     description = "No Teams Found",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/")
-    public Page<GetTeamDto> getAll(@RequestParam(value = "search", defaultValue = "") String search,
+    public Page<GetTeamDto> getAllTeams(@RequestParam(value = "search", defaultValue = "") String search,
                                    @PageableDefault(size = 15, page = 0) Pageable pageable) {
 
         List<SearchCriteria> params = SearchCriteriaExtractor.extractSearchCriteriaList(search);
@@ -122,8 +125,10 @@ public class TeamController {
                     description = "No Team Found",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{id}")
-    public GetTeamDto getById(@PathVariable Long id) {
+    public GetTeamDto getTeamById(@PathVariable Long id) {
 
 
         return GetTeamDto.fromTeam(teamService.findById(id).orElse(null));
@@ -151,6 +156,8 @@ public class TeamController {
                     description = "No Team Creation Request",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/")
     public ResponseEntity<GetTeamDto> createNewTeam(@Valid @RequestBody NewTeamDto newTeamDto) {
 
@@ -189,6 +196,8 @@ public class TeamController {
                     description = "Bad teamName of Team update Request",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public GetTeamDto editTeam(@PathVariable Long id, @Valid @RequestBody EditTeamDto editTeamDto) {
 
@@ -212,6 +221,8 @@ public class TeamController {
                             )}
                     )}),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
 
