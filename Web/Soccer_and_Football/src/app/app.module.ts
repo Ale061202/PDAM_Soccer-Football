@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule  } from '@angular/forms';
 import { MaterialImportsModule } from './modules/material-imports.module';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { MaterialImportsModule } from './modules/material-imports.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialImportsModule,
-    FormsModule
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

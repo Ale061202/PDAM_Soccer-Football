@@ -1,0 +1,21 @@
+<h1>Login</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <label>
+        Username:
+        <input type="text" formControlName="username">
+    </label>
+    <br>
+    <br>
+    <label>
+        Password:
+        <input type="password" formControlName="password">
+    </label>
+    <br>
+    <br>
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <br>
+    <br>
+    <div *ngIf="response">
+        {{response}}
+    </div>
+</form>
