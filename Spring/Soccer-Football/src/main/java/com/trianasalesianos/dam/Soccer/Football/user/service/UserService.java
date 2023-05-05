@@ -1,14 +1,9 @@
 package com.trianasalesianos.dam.Soccer.Football.user.service;
 
 
-import com.trianasalesianos.dam.Soccer.Football.exception.NotPermission;
-import com.trianasalesianos.dam.Soccer.Football.exception.TeamNotFoundException;
 import com.trianasalesianos.dam.Soccer.Football.exception.UserNotFoundException;
-import com.trianasalesianos.dam.Soccer.Football.post.model.Post;
-import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
 import com.trianasalesianos.dam.Soccer.Football.team.repository.TeamRepository;
 import com.trianasalesianos.dam.Soccer.Football.user.dto.CreateUserRequest;
-import com.trianasalesianos.dam.Soccer.Football.user.dto.UserResponse;
 import com.trianasalesianos.dam.Soccer.Football.user.model.User;
 import com.trianasalesianos.dam.Soccer.Football.user.model.UserRole;
 import com.trianasalesianos.dam.Soccer.Football.user.repository.UserRepository;
@@ -44,7 +39,7 @@ public class UserService {
 
         return userRepository.save(user);
     }
-    public ResponseEntity<?> deleteUser(UUID idU, User user) throws NotPermission {
+    public ResponseEntity<?> deleteUser(UUID idU, User user) throws UserNotFoundException {
         return userRepository.findById(idU).map(
                 oldUser -> {
                     if (oldUser.getId().equals(user.getId()) || user.getRoles().contains(UserRole.ADMIN)) {
@@ -53,8 +48,8 @@ public class UserService {
                         return ResponseEntity.noContent().build();
                     }
                     try {
-                        throw new NotPermission();
-                    } catch (NotPermission e) {
+                        throw new UserNotFoundException();
+                    } catch (UserNotFoundException e) {
                         throw new RuntimeException(e);
                     }
                 }
