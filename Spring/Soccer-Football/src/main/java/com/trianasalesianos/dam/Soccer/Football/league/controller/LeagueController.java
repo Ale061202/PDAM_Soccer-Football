@@ -22,6 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -96,6 +97,8 @@ public class LeagueController {
                     description = "No Leagues Found",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/")
     public Page<GetLeagueDto> getAll(@RequestParam(value = "search", defaultValue = "") String search,
                                       @PageableDefault(size = 15, page = 0 )Pageable pageable) {
@@ -177,6 +180,8 @@ public class LeagueController {
                     description = "No League By Id Found",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{id}")
     public GetLeagueDto getById(@PathVariable Long id){
         return GetLeagueDto.fromLeague(leagueService.findById(id).orElse(null));
@@ -204,6 +209,8 @@ public class LeagueController {
                     description = "No League Creation Request",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/")
     public ResponseEntity<GetLeagueDto> createNewLeague(@Valid @RequestBody League league) {
 
@@ -247,6 +254,8 @@ public class LeagueController {
                     description = "No Team Addition",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{leagueID}/team/{teamId}")
     public ResponseEntity<GetLeagueDto> addTeamLeague(@PathVariable Long leagueID, @PathVariable Long teamId){
         return ResponseEntity.status(HttpStatus.CREATED).body(leagueService.addTeam(leagueID,teamId));
@@ -274,6 +283,8 @@ public class LeagueController {
                     description = "Bad leagueName of League update Request",
                     content = @Content),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public GetLeagueDto editLeague(@PathVariable Long id, @Valid @RequestBody EditLeagueDto editLeagueDto) {
 
@@ -297,6 +308,8 @@ public class LeagueController {
                             )}
                     )}),
     })
+
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
 

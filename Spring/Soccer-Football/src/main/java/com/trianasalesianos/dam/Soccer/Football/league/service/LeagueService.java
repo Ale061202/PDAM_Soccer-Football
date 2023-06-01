@@ -72,8 +72,6 @@ public class LeagueService {
     public Page<League> search(List<SearchCriteria> params, Pageable pageable) {
         LeagueSpecificationBuilder leagueSpecificationBuilder =
                 new LeagueSpecificationBuilder(params);
-        //GenericSpecificationBuilder<Person> personSpecificationBuilder =
-        //        new GenericSpecificationBuilder<>(params, Person.class);
         Specification<League> spec =  leagueSpecificationBuilder.build();
         return repository.findAll(spec, pageable);
     }

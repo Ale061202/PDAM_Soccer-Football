@@ -21,7 +21,8 @@ import java.util.UUID;
 public class UserResponse {
 
     protected String id;
-    protected String username, avatar, first_name,last_name,phone,email;
+    protected String username, avatar, first_name,last_name,email;
+    protected Integer phone;
     protected String token;
     protected Set<UserRole> roles;
 

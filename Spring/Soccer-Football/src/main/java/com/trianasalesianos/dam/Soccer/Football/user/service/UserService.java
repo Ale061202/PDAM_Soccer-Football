@@ -8,6 +8,7 @@ import com.trianasalesianos.dam.Soccer.Football.post.model.Post;
 import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
 import com.trianasalesianos.dam.Soccer.Football.team.repository.TeamRepository;
 import com.trianasalesianos.dam.Soccer.Football.user.dto.CreateUserRequest;
+import com.trianasalesianos.dam.Soccer.Football.user.dto.UserDetailsResponse;
 import com.trianasalesianos.dam.Soccer.Football.user.dto.UserResponse;
 import com.trianasalesianos.dam.Soccer.Football.user.model.User;
 import com.trianasalesianos.dam.Soccer.Football.user.model.UserRole;
@@ -107,6 +108,13 @@ public class UserService {
                     return userRepository.save(u);
                 }).or(() -> Optional.empty());
 
+    }
+
+    public UserDetailsResponse getByUsername(String username){
+        User user= userRepository.findFirstByUsername(username)
+                .orElseThrow(() ->  new UserNotFoundException());
+
+        return UserDetailsResponse.fromUser(user);
     }
 
     public void delete(User user) {
