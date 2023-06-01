@@ -1,6 +1,7 @@
 package com.trianasalesianos.dam.Soccer.Football.league.model;
 
 import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
+import com.trianasalesianos.dam.Soccer.Football.user.model.User;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -26,6 +27,10 @@ public class League {
     @OneToMany(mappedBy = "league",fetch = FetchType.LAZY)
     @Builder.Default
     private List<Team> teams = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     //Helper Team
 

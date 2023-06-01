@@ -7,134 +7,10 @@
 	},
 	"item": [
 		{
-			"name": "Usuarios",
+			"name": "Comment",
 			"item": [
 				{
-					"name": "POST Register User",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"ale2\",\r\n    \"avatar\" : \"https://robohash.org/ale\",\r\n    \"password\" : \"1234\",\r\n    \"first_name\" : \"Alejandro\",\r\n    \"last_name\" : \"Fernandez\",\r\n    \"phone\" : \"618123995\",\r\n    \"email\" : \"fernandezgoale21@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/auth/register/user",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"auth",
-								"register",
-								"user"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Register Admin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"admin1234\",\r\n    \"avatar\" : \"https://robohash.org/admin\",\r\n    \"password\" : \"1234\",\r\n    \"first_name\" : \"Admin\",\r\n    \"last_name\" : \"admin\",\r\n    \"phone\" : \"618123995\",\r\n    \"email\" : \"fernandezgoale21@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/auth/register/admin",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"auth",
-								"register",
-								"admin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Login User",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var json = pm.response.json();\r",
-									"pm.collectionVariables.set(\"token\", json.token);\r",
-									"pm.collectionVariables.set(\"refresh_token\", json.refreshToken);\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"ale\",\r\n    \"password\": \"1234\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/auth/login",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Login Admin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"admin1234\",\r\n    \"password\": \"1234\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/auth/login",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT Modificar contraeña",
+					"name": "GET Get All Comments",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -146,32 +22,23 @@
 								}
 							]
 						},
-						"method": "PUT",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"oldPassword\": \"1234\",\r\n    \"newPassword\": \"12345678\",\r\n    \"verifyPassword\": \"12345678\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{baseUrl}}/user/changePassword",
+							"raw": "{{baseUrl}}/comment/",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"user",
-								"changePassword"
+								"comment",
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "POST Add Team To User",
+					"name": "GET Get a Comment by Id",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -183,18 +50,81 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/user/{{id}}/team/1",
+							"raw": "{{baseUrl}}/comment/1",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"user",
-								"{{id}}",
-								"team",
+								"comment",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Comment a Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\" : \"Este es el nuevo contenido\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comment/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Delete a Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"2"
 							]
 						}
 					},
@@ -396,6 +326,324 @@
 			]
 		},
 		{
+			"name": "Player",
+			"item": [
+				{
+					"name": "GET Get All Players",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/player/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"player",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Get Player By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/player/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"player",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create a new Player",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Sergio Canales\",\r\n    \"age\" : 32,\r\n    \"position\" : \"midfielder\",\r\n    \"height\" : 176,\r\n    \"weight\" : 65,\r\n    \"jerseyNumber\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/player/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"player",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Modify a Player",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Sergio Ramos\",\r\n    \"age\" : 37,\r\n    \"position\" : \"defender\",\r\n    \"height\" : 184,\r\n    \"weight\" : 82,\r\n    \"jerseyNumber\" : 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/player/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"player",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Delete a Player",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/player/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"player",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "GET Get All Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/post/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Get a Post by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/post/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create a Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"value": "{\n    \"title\" : \"Nuevo Content\"\n}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/aleja/Downloads/logo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/post/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Add Comment to Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/post/34/comment/35",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"post",
+								"34",
+								"comment",
+								"35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Team",
 			"item": [
 				{
@@ -559,82 +807,16 @@
 			]
 		},
 		{
-			"name": "Comment",
+			"name": "Usuarios",
 			"item": [
 				{
-					"name": "GET Get All Comments",
+					"name": "POST Register User",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/comment/",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"comment",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Get a Comment by Id",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/comment/1",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"comment",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Comment a Post",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\" : \"Este es el nuevo contenido\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"ale2\",\r\n    \"avatar\" : \"https://robohash.org/ale\",\r\n    \"password\" : \"1234\",\r\n    \"first_name\" : \"Alejandro\",\r\n    \"last_name\" : \"Fernandez\",\r\n    \"phone\" : \"618123995\",\r\n    \"email\" : \"fernandezgoale21@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -642,153 +824,154 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/comment/",
+							"raw": "{{baseUrl}}/auth/register/user",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"comment",
-								""
+								"auth",
+								"register",
+								"user"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "DELETE Delete a Comment",
+					"name": "POST Register Admin",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/comment/2",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"comment",
-								"2"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Post",
-			"item": [
-				{
-					"name": "GET Get All Post",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/post/",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"post",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET Get a Post by Id",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/post/1",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"post",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Create a Post",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "post",
-									"value": "{\n    \"title\" : \"Nuevo Content\"\n}",
-									"contentType": "application/json",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "/C:/Users/aleja/Downloads/logo.png"
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"admin1234\",\r\n    \"avatar\" : \"https://robohash.org/admin\",\r\n    \"password\" : \"1234\",\r\n    \"first_name\" : \"Admin\",\r\n    \"last_name\" : \"admin\",\r\n    \"phone\" : \"618123995\",\r\n    \"email\" : \"fernandezgoale21@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/post/",
+							"raw": "{{baseUrl}}/auth/register/admin",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"post",
-								""
+								"auth",
+								"register",
+								"admin"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "POST Add Comment to Post",
+					"name": "POST Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var json = pm.response.json();\r",
+									"pm.collectionVariables.set(\"token\", json.token);\r",
+									"pm.collectionVariables.set(\"refresh_token\", json.refreshToken);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ale\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin1234\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Modificar contraeña",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"1234\",\r\n    \"newPassword\": \"12345678\",\r\n    \"verifyPassword\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/changePassword",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Add Team To User",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -803,15 +986,15 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/post/34/comment/35",
+							"raw": "{{baseUrl}}/user/{{id}}/team/1",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"post",
-								"34",
-								"comment",
-								"35"
+								"user",
+								"{{id}}",
+								"team",
+								"1"
 							]
 						}
 					},

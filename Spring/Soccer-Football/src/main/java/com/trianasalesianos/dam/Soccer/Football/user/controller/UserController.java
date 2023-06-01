@@ -174,10 +174,28 @@ public class UserController {
 
     }
 
-    @GetMapping("/user")
+
+    @Operation(summary = "Get the current user")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",
+                    description = "User fetched succesfully",
+                    content = { @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = UserDetailsResponse.class)),
+                            examples = {@ExampleObject(
+                                    value = """
+                                                
+                                            """
+                            )}
+                    )}),
+            @ApiResponse(responseCode = "404",
+                    description = "User not found",
+                    content = @Content),
+    })
+    @GetMapping("/user/me")
     public UserDetailsResponse getCurrentUserProfile(@AuthenticationPrincipal User user){
         return userService.getByUsername(user.getUsername());
     }
+
     @Operation(summary = "Changing password")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201",

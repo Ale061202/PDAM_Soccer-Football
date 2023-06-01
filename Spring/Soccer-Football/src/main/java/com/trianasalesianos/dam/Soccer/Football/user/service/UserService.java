@@ -36,21 +36,14 @@ public class UserService {
                 .username(createUserRequest.getUsername())
                 .password(passwordEncoder.encode(createUserRequest.getPassword()))
                 .avatar(createUserRequest.getAvatar())
-                .firstName(createUserRequest.getFirst_name())
-                .lastName(createUserRequest.getLast_name())
+                .first_name(createUserRequest.getFirst_name())
+                .last_name(createUserRequest.getLast_name())
                 .phone(createUserRequest.getPhone())
                 .email(createUserRequest.getEmail())
                 .roles(roles)
                 .build();
 
         return userRepository.save(user);
-    }
-
-    public UserDetailsResponse getByUsername(String username){
-        User user= userRepository.findFirstByUsername(username)
-                .orElseThrow(() ->  new UserNotFoundException());
-
-        return UserDetailsResponse.fromUser(user);
     }
     public ResponseEntity<?> deleteUser(UUID idU, User user) throws NotPermission {
         return userRepository.findById(idU).map(
@@ -98,7 +91,8 @@ public class UserService {
         return userRepository.findById(user.getId())
                 .map(u -> {
                     u.setAvatar(user.getAvatar());
-                    u.setUsername(user.getUsername());
+                    u.setFirst_name(user.getFirst_name());
+                    u.setLast_name(user.getLast_name());
                     return userRepository.save(u);
                 }).or(() -> Optional.empty());
 
@@ -114,6 +108,13 @@ public class UserService {
                     return userRepository.save(u);
                 }).or(() -> Optional.empty());
 
+    }
+
+    public UserDetailsResponse getByUsername(String username){
+        User user= userRepository.findFirstByUsername(username)
+                .orElseThrow(() ->  new UserNotFoundException());
+
+        return UserDetailsResponse.fromUser(user);
     }
 
     public void delete(User user) {
