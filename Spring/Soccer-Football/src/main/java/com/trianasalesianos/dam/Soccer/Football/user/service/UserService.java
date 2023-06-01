@@ -8,6 +8,7 @@ import com.trianasalesianos.dam.Soccer.Football.post.model.Post;
 import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
 import com.trianasalesianos.dam.Soccer.Football.team.repository.TeamRepository;
 import com.trianasalesianos.dam.Soccer.Football.user.dto.CreateUserRequest;
+import com.trianasalesianos.dam.Soccer.Football.user.dto.UserDetailsResponse;
 import com.trianasalesianos.dam.Soccer.Football.user.dto.UserResponse;
 import com.trianasalesianos.dam.Soccer.Football.user.model.User;
 import com.trianasalesianos.dam.Soccer.Football.user.model.UserRole;
@@ -35,14 +36,21 @@ public class UserService {
                 .username(createUserRequest.getUsername())
                 .password(passwordEncoder.encode(createUserRequest.getPassword()))
                 .avatar(createUserRequest.getAvatar())
-                .first_name(createUserRequest.getFirst_name())
-                .last_name(createUserRequest.getLast_name())
+                .firstName(createUserRequest.getFirst_name())
+                .lastName(createUserRequest.getLast_name())
                 .phone(createUserRequest.getPhone())
                 .email(createUserRequest.getEmail())
                 .roles(roles)
                 .build();
 
         return userRepository.save(user);
+    }
+
+    public UserDetailsResponse getByUsername(String username){
+        User user= userRepository.findFirstByUsername(username)
+                .orElseThrow(() ->  new UserNotFoundException());
+
+        return UserDetailsResponse.fromUser(user);
     }
     public ResponseEntity<?> deleteUser(UUID idU, User user) throws NotPermission {
         return userRepository.findById(idU).map(
@@ -90,8 +98,7 @@ public class UserService {
         return userRepository.findById(user.getId())
                 .map(u -> {
                     u.setAvatar(user.getAvatar());
-                    u.setFirst_name(user.getFirst_name());
-                    u.setLast_name(user.getLast_name());
+                    u.setUsername(user.getUsername());
                     return userRepository.save(u);
                 }).or(() -> Optional.empty());
 

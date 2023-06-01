@@ -1,9 +1,3 @@
-package com.trianasalesianos.dam.Soccer.Football.post.controller;
-
-import com.trianasalesianos.dam.Soccer.Football.comment.dto.GetCommentDto;
-import com.trianasalesianos.dam.Soccer.Football.comment.model.Comment;
-import com.trianasalesianos.dam.Soccer.Football.league.dto.GetLeagueDto;
-import com.trianasalesianos.dam.Soccer.Football.league.model.League;
 import com.trianasalesianos.dam.Soccer.Football.post.dto.GetPostDto;
 import com.trianasalesianos.dam.Soccer.Football.post.dto.NewPostDto;
 import com.trianasalesianos.dam.Soccer.Football.post.model.Post;
@@ -28,10 +22,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
-import java.net.URI;
 import java.util.List;
 
 @RestController

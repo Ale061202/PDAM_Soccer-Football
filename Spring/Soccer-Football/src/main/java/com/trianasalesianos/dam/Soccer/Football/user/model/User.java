@@ -49,11 +49,11 @@ public class User implements UserDetails {
 
     private String avatar;
 
-    private String first_name;
+    private String firstName;
 
-    private String last_name;
+    private String lastName;
 
-    private String phone;
+    private Integer phone;
 
     private String email;
 

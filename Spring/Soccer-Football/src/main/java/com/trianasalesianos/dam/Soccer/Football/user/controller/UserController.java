@@ -174,7 +174,10 @@ public class UserController {
 
     }
 
-
+    @GetMapping("/user")
+    public UserDetailsResponse getCurrentUserProfile(@AuthenticationPrincipal User user){
+        return userService.getByUsername(user.getUsername());
+    }
     @Operation(summary = "Changing password")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201",
