@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mh3-Go-JdB">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="Soccer_and_Football" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BVa-bA-fS1">
+                                <rect key="frame" x="46.666666666666657" y="461" width="300" height="40"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1tC-x6-9V2"/>
+                                    <constraint firstAttribute="width" constant="300" id="I7S-fe-cxv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-XA-a4f">
+                                <rect key="frame" x="46.666666666666657" y="560" width="300" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ULB-x0-0mu"/>
+                                    <constraint firstAttribute="height" constant="40" id="z9u-bi-DHY"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login">
+                                    <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IWB-qe-XyQ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ale1234" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PfQ-NO-wqW">
+                                <rect key="frame" x="46.666666666666657" y="383" width="300" height="40"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="42g-n2-VrP"/>
+                                    <constraint firstAttribute="height" constant="40" id="qiO-WO-0Jg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SoccerAndFootball" translatesAutoresizingMaskIntoConstraints="NO" id="c04-gG-FNC">
+                                <rect key="frame" x="46" y="103" width="300" height="230"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5wo-XA-a4f" firstAttribute="centerX" secondItem="BVa-bA-fS1" secondAttribute="centerX" id="1VU-Gu-xnb"/>
+                            <constraint firstItem="BVa-bA-fS1" firstAttribute="top" secondItem="PfQ-NO-wqW" secondAttribute="bottom" constant="38" id="51O-bZ-jgQ"/>
+                            <constraint firstItem="BVa-bA-fS1" firstAttribute="leading" secondItem="PfQ-NO-wqW" secondAttribute="leading" id="6mK-De-f8J"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="c04-gG-FNC" secondAttribute="top" id="SYD-c9-zIi"/>
+                            <constraint firstItem="c04-gG-FNC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="46" id="cSg-Cc-KYx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="c04-gG-FNC" secondAttribute="trailing" constant="47" id="ck9-UC-kV5"/>
+                            <constraint firstItem="PfQ-NO-wqW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="dqM-5P-2xy"/>
+                            <constraint firstItem="PfQ-NO-wqW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="280" id="g9d-hZ-vJi"/>
+                            <constraint firstItem="PfQ-NO-wqW" firstAttribute="top" secondItem="c04-gG-FNC" secondAttribute="bottom" constant="50" id="gew-HE-iKK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5wo-XA-a4f" secondAttribute="bottom" constant="218" id="sNq-ez-Aoq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kas-3L-OFu"/>
+                    <connections>
+                        <outlet property="loginButton" destination="5wo-XA-a4f" id="eRR-A8-0jR"/>
+                        <outlet property="passwordTextField" destination="BVa-bA-fS1" id="5fI-13-vdl"/>
+                        <outlet property="usernameTextField" destination="PfQ-NO-wqW" id="Lvy-dA-xsK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1052.6717557251909" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Sry-3Y-dCE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mh3-Go-JdB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M8u-hi-Wnb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="fD8-6J-hnB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4O-iF-teI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.48091603053435" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SoccerAndFootball" width="500" height="500"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

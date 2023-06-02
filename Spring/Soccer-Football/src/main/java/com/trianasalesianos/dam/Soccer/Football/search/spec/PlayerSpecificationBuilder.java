@@ -8,6 +8,7 @@ import java.util.List;
 
 public class PlayerSpecificationBuilder extends GenericSpecificationBuilder<Player> {
 
+
     public PlayerSpecificationBuilder(List<SearchCriteria> params) {
         super(params, Team.class);
     }

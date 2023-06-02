@@ -1,36 +1,33 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/authservice.service';
+import { LoginRequest } from 'src/app/models/login.dto';
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
-  response?: String;
+  username!: string;
+  password!: string;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
-    this.loginForm = this.fb.group({
-      username: [''],
-      password: ['']
-    });
+  constructor(private authService: AuthService, private tokenService: TokenService, private router: Router ) { }
+
+  ngOnInit(): void {
   }
-  
-  onSubmit() {
-    const {username, password} = this.loginForm.value;
-    this.authService.login(username, password).subscribe(
-      () => {
-        this.router.navigate(['/'])
-        this.response = 'Login successful';
+
+  onLogin(): void {
+    const loginRequest = new LoginRequest(this.username,this.password);
+    this.authService.login(loginRequest).subscribe(
+      data => {
+        this.tokenService.setToken(data.token)
       },
       error => {
-        this.response = 'Login failed';
+        console.log(error)
       }
     );
   }
-
 }
