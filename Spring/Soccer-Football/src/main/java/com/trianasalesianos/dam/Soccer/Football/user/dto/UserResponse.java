@@ -26,9 +26,6 @@ public class UserResponse {
     protected String token;
     protected Set<UserRole> roles;
 
-    protected List<GetPostDto> posts;
-
-
 
     public static UserResponse fromUser(User user) {
 
@@ -41,7 +38,6 @@ public class UserResponse {
                 .phone(user.getPhone())
                 .email(user.getEmail())
                 .roles(user.getRoles())
-                .posts(user.getPosts().isEmpty() ? null : user.getPosts().stream().map(GetPostDto::fromPost).toList())
                 .token("")
                 .build();
     }

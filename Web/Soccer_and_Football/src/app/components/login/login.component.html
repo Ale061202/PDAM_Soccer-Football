@@ -1,30 +1,34 @@
-<div class="bootstrap-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="container text-center">
-                  <!--Aqui va el logo de la aplicación-->  
-                </div>
-
-                <h1 class="text-center">Login</h1>
-
-                <form action="">
-
-                    <!--username fieldtext-->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Username</mat-label>
-                        <input
-                         required
-                         name="username"
-                         matInput
-                         placeholder="Enter here"
-                         [(ngModel)] = "user.username"
-                         >
-                         <mat-hint>Username debe ser unico</mat-hint>
-                    </mat-form-field>
-
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="body">
+    <mat-card class="loginCard">
+      <div class="header">
+        <img src="/assets/soccer_and_football.png" alt="Flallery Logo" class="logo-img">
+      </div>
+      <mat-card-content style="padding-bottom: 15px;">
+        <form [formGroup]="formularioLogin" (ngSubmit)="login()">
+          <mat-form-field class="full-width" appearance="outline">
+  
+            <mat-label>Username</mat-label>
+            <input formControlName="username" matInput autocomplete="off">
+  
+          </mat-form-field>
+  
+          <mat-form-field class="full-width" appearance="outline">
+  
+            <mat-label>Password</mat-label>
+            <input [type]="ocultarPassword ? 'password' : 'text'" formControlName="password" matInput autocomplete="off">
+            <button mat-icon-button matSuffix (click)="ocultarPassword = !ocultarPassword" type="button">
+              <mat-icon matSuffix>{{ocultarPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+  
+          <button class="full-width" mat-raised-button color="primary" type="submit" [disabled]="formularioLogin.invalid">
+            Login
+          </button>
+  
+        </form>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" *ngIf="mostrarLoading"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
