@@ -31,6 +31,9 @@
 		53F9AC9A2A27B50300988324 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53F9AC992A27B50300988324 /* Home.storyboard */; };
 		A9C515EB2A386AEB00923EFA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C515E92A386AEB00923EFA /* HomeTableViewCell.swift */; };
 		A9C515EC2A386AEB00923EFA /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C515EA2A386AEB00923EFA /* HomeTableViewCell.xib */; };
+		A9C516072A3BBB4200923EFA /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C516052A3BBB4200923EFA /* PlayerTableViewCell.swift */; };
+		A9C516082A3BBB4200923EFA /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C516062A3BBB4200923EFA /* PlayerTableViewCell.xib */; };
+		A9C5160B2A3BBC9700923EFA /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5160A2A3BBC9700923EFA /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		53F9AC992A27B50300988324 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A9C515E92A386AEB00923EFA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		A9C515EA2A386AEB00923EFA /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
+		A9C516052A3BBB4200923EFA /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		A9C516062A3BBB4200923EFA /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
+		A9C5160A2A3BBC9700923EFA /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +152,7 @@
 		5375197D2A1A9C49001C39E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A9C516092A3BBC8B00923EFA /* League */,
 				53C371D52A28BA130083CD03 /* PostScreen */,
 				53AC27642A23CEDE00269D60 /* LoginScreen */,
 			);
@@ -205,6 +212,8 @@
 			children = (
 				53AC276F2A23DD5A00269D60 /* League.storyboard */,
 				53AC27712A23DD6700269D60 /* LeagueViewController.swift */,
+				A9C516052A3BBB4200923EFA /* PlayerTableViewCell.swift */,
+				A9C516062A3BBB4200923EFA /* PlayerTableViewCell.xib */,
 			);
 			path = Football;
 			sourceTree = "<group>";
@@ -215,6 +224,14 @@
 				53C371D62A28BA250083CD03 /* Post.swift */,
 			);
 			path = PostScreen;
+			sourceTree = "<group>";
+		};
+		A9C516092A3BBC8B00923EFA /* League */ = {
+			isa = PBXGroup;
+			children = (
+				A9C5160A2A3BBC9700923EFA /* Player.swift */,
+			);
+			path = League;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +294,7 @@
 			files = (
 				53AC276E2A23DD2E00269D60 /* Photo.storyboard in Resources */,
 				538E76682A1BEF1E00524E8A /* Profile.storyboard in Resources */,
+				A9C516082A3BBB4200923EFA /* PlayerTableViewCell.xib in Resources */,
 				5375197A2A1A98BC001C39E3 /* Login.storyboard in Resources */,
 				53AC27702A23DD5A00269D60 /* League.storyboard in Resources */,
 				A9C515EC2A386AEB00923EFA /* HomeTableViewCell.xib in Resources */,
@@ -298,6 +316,7 @@
 				538E76602A1BE20800524E8A /* Defaults.swift in Sources */,
 				538E766A2A1BEF2900524E8A /* ProfileViewController.swift in Sources */,
 				537519662A1A9782001C39E3 /* ViewController.swift in Sources */,
+				A9C516072A3BBB4200923EFA /* PlayerTableViewCell.swift in Sources */,
 				53AC27722A23DD6700269D60 /* LeagueViewController.swift in Sources */,
 				53C371D72A28BA260083CD03 /* Post.swift in Sources */,
 				A9C515EB2A386AEB00923EFA /* HomeTableViewCell.swift in Sources */,
@@ -308,6 +327,7 @@
 				5375197F2A1A9C5A001C39E3 /* LoginRequest.swift in Sources */,
 				537519642A1A9782001C39E3 /* SceneDelegate.swift in Sources */,
 				53F9AC982A27B4E900988324 /* HomeViewController.swift in Sources */,
+				A9C5160B2A3BBC9700923EFA /* Player.swift in Sources */,
 				53AC27662A23CEFA00269D60 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
