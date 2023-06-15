@@ -3,7 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +20,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkf-7B-BXF">
                                 <rect key="frame" x="10" y="469" width="373" height="34"/>
+                                <color key="backgroundColor" name="LightGrey"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -40,7 +42,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic4-eV-unR">
-                                <rect key="frame" x="140" y="365.33333333333331" width="113" height="35"/>
+                                <rect key="frame" x="10" y="365.33333333333331" width="373" height="35"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Seleccionar"/>
                                 <connections>
@@ -54,7 +58,6 @@
                         <viewLayoutGuide key="safeArea" id="3rW-GO-m6I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ic4-eV-unR" firstAttribute="leading" secondItem="3rW-GO-m6I" secondAttribute="leading" constant="140" id="4nN-o8-Qdl"/>
                             <constraint firstItem="ic4-eV-unR" firstAttribute="top" secondItem="pHT-gs-6uU" secondAttribute="bottom" constant="27.666666666666742" id="6TM-Ay-aRe"/>
                             <constraint firstItem="qkf-7B-BXF" firstAttribute="leading" secondItem="3rW-GO-m6I" secondAttribute="leading" constant="10" id="8ry-m8-iMF"/>
                             <constraint firstItem="z80-GI-CYO" firstAttribute="top" secondItem="ic4-eV-unR" secondAttribute="bottom" constant="39.666666666666686" id="AaR-ok-n6T"/>
@@ -65,10 +68,11 @@
                             <constraint firstItem="pHT-gs-6uU" firstAttribute="leading" secondItem="3rW-GO-m6I" secondAttribute="leading" constant="10" id="PbS-87-iiS"/>
                             <constraint firstItem="3rW-GO-m6I" firstAttribute="trailing" secondItem="pHT-gs-6uU" secondAttribute="trailing" constant="10" id="V2E-Lg-JPK"/>
                             <constraint firstItem="3rW-GO-m6I" firstAttribute="bottom" secondItem="r5X-LP-1oE" secondAttribute="bottom" constant="165" id="Wpu-AZ-p8a"/>
-                            <constraint firstItem="3rW-GO-m6I" firstAttribute="trailing" secondItem="ic4-eV-unR" secondAttribute="trailing" constant="140" id="cuL-9l-DOe"/>
+                            <constraint firstItem="ic4-eV-unR" firstAttribute="leading" secondItem="pHT-gs-6uU" secondAttribute="leading" id="bw2-f2-lFp"/>
                             <constraint firstItem="3rW-GO-m6I" firstAttribute="trailing" secondItem="qkf-7B-BXF" secondAttribute="trailing" constant="10" id="g6t-39-cL6"/>
                             <constraint firstItem="qkf-7B-BXF" firstAttribute="top" secondItem="z80-GI-CYO" secondAttribute="bottom" constant="8" symbolic="YES" id="hLp-ui-tr9"/>
                             <constraint firstItem="r5X-LP-1oE" firstAttribute="top" secondItem="qkf-7B-BXF" secondAttribute="bottom" constant="66" id="ndn-A7-gMs"/>
+                            <constraint firstItem="ic4-eV-unR" firstAttribute="trailing" secondItem="pHT-gs-6uU" secondAttribute="trailing" id="qAe-IW-llv"/>
                             <constraint firstItem="3rW-GO-m6I" firstAttribute="trailing" secondItem="z80-GI-CYO" secondAttribute="trailing" constant="307" id="yPS-BS-j4m"/>
                         </constraints>
                     </view>
@@ -87,6 +91,12 @@
     </scenes>
     <resources>
         <image name="TabBarPlus" width="26" height="26"/>
+        <namedColor name="AccentColor">
+            <color red="0.20399999618530273" green="0.77999997138977051" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightGrey">
+            <color red="0.79199999570846558" green="0.80000001192092896" blue="0.8399999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

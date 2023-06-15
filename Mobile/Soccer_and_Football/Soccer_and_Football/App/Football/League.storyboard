@@ -21,6 +21,13 @@
                                 <rect key="frame" x="10" y="149" width="373" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X44-go-DqB">
+                                <rect key="frame" x="175" y="99" width="52" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WzJ-ax-cj0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,6 +41,9 @@
                     <tabBarItem key="tabBarItem" title="" image="TabBarSoccerball" selectedImage="TabBarSoccerball" id="Xuf-Jh-BWk"/>
                     <navigationItem key="navigationItem" id="PFO-KF-Z7B"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="XfX-sy-S10" id="HCD-Pi-W7k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrp-mn-nxP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,16 +23,6 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let image = imageView.image
         let title = titleLabel.text
 
-        doPost(image: image, title: title) { result in
-            switch result {
-            case .success(let post):
-                // Manejar el resultado exitoso
-                print("Post creado: \(post)")
-            case .failure(let error):
-                // Manejar el error
-                print("Error al crear el post: \(error)")
-            }
-        }
 
     }
     
@@ -59,7 +49,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
 extension PhotoViewController {
     
-    func doPost(image: UIImage?, title: String?, completion: @escaping (Result<Post, Error>) -> Void) {
+    /*func doPost(image: UIImage?, title: String?, completion: @escaping (Result<Post, Error>) -> Void) {
         guard let url = URL(string: Constants.URLs.post) else {
             print("URL inválida")
             return
@@ -96,5 +86,5 @@ extension PhotoViewController {
                 completion(.failure(error))
             }
         }.resume()
-    }
+    }*/
 }
