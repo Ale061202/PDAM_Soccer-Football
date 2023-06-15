@@ -93,7 +93,7 @@ public class TeamController {
                     content = @Content),
     })
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/")
     public Page<GetTeamDto> getAllTeams(@RequestParam(value = "search", defaultValue = "") String search,
                                    @PageableDefault(size = 15, page = 0) Pageable pageable) {
@@ -126,12 +126,12 @@ public class TeamController {
                     content = @Content),
     })
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/{id}")
     public GetTeamDto getTeamById(@PathVariable Long id) {
 
 
-        return GetTeamDto.fromTeam(teamService.findById(id).orElse(null));
+        return GetTeamDto.fromTeam(teamService.findById(id));
 
     }
 
@@ -158,7 +158,7 @@ public class TeamController {
     })
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/")
+    @PostMapping("/create")
     public ResponseEntity<GetTeamDto> createNewTeam(@Valid @RequestBody NewTeamDto newTeamDto) {
 
         Team created = teamService.save(newTeamDto);

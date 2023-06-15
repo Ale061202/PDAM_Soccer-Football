@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row color="primary" class="gradient-toolbar">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 style="margin: auto">Soccer & Football</h1>
+    <img
+      style="height: 80%; border-radius: 10%"
+      src="../../../assets/soccer_and_football.png"
+      alt=""
+    />
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px">
+    <mat-nav-list>
+      <mat-list-item routerLink="/view/dashboard">
+        <mat-icon matListItemIcon>person</mat-icon>
+        <a mat-line>Perfil</a>
+      </mat-list-item>
+      
+      <mat-list-item routerLink="/view/leagues">
+        <mat-icon matListItemIcon>sports_soccer</mat-icon>
+        <a mat-line>Ligas</a>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/view/teams">
+        <mat-icon matListItemIcon>sports_soccer</mat-icon>
+        <a mat-line>Equipos</a>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/view/players">
+        <mat-icon matListItemIcon>sports_soccer</mat-icon>
+        <a mat-line>Jugadores</a>
+      </mat-list-item>
+
+      <mat-list-item (click)="logout()">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <a mat-line>Log out</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="height: 90vh">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

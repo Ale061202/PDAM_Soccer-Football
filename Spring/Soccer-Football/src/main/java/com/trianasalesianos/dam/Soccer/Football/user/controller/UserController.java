@@ -1,11 +1,7 @@
 package com.trianasalesianos.dam.Soccer.Football.user.controller;
 
-import com.trianasalesianos.dam.Soccer.Football.comment.model.Comment;
-import com.trianasalesianos.dam.Soccer.Football.exception.NotPermission;
 import com.trianasalesianos.dam.Soccer.Football.security.jwt.access.JwtProvider;
 import com.trianasalesianos.dam.Soccer.Football.security.jwt.refresh.RefreshToken;
-import com.trianasalesianos.dam.Soccer.Football.security.jwt.refresh.RefreshTokenException;
-import com.trianasalesianos.dam.Soccer.Football.security.jwt.refresh.RefreshTokenRequest;
 import com.trianasalesianos.dam.Soccer.Football.security.jwt.refresh.RefreshTokenService;
 import com.trianasalesianos.dam.Soccer.Football.user.dto.*;
 import com.trianasalesianos.dam.Soccer.Football.user.model.User;
@@ -20,6 +16,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -30,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -243,8 +241,9 @@ public class UserController {
         return null;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/user/{uId}")
-    public ResponseEntity<?> deleteUser(@PathVariable UUID uId, @AuthenticationPrincipal User user) throws NotPermission {
+    public ResponseEntity<?> deleteUser(@PathVariable UUID uId, @AuthenticationPrincipal User user) {
         return userService.deleteUser(uId, user);
     }
 }

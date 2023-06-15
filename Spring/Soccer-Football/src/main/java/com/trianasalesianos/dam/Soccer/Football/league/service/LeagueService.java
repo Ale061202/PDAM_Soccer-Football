@@ -33,7 +33,7 @@ public class LeagueService {
         List<League> result = repository.findAll();
 
         if (result.isEmpty())
-            throw new EntityNotFoundException("No users with this search criteria");
+            throw new LeagueNotFoundException();
 
         return repository.findAll();
     }

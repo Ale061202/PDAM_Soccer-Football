@@ -1,0 +1,27 @@
+<div class="contenedor-central">
+    <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="page" [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons class="table">
+    </mat-paginator>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teamList">
+          <td>{{ team.id }}</td>
+          <td>{{ team.teamName }}</td>
+          <td>
+            <button class="btn-edit" (click)="editTeam(team)">Editar</button>
+          </td>
+          <td>
+            <button class="btn-delete" (click)="deleteTeam(team)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -3,10 +3,14 @@ package com.trianasalesianos.dam.Soccer.Football.player.controller;
 
 import com.trianasalesianos.dam.Soccer.Football.player.dto.EditPlayerDto;
 import com.trianasalesianos.dam.Soccer.Football.player.dto.GetPlayerDto;
+import com.trianasalesianos.dam.Soccer.Football.player.dto.NewPlayerDto;
 import com.trianasalesianos.dam.Soccer.Football.player.model.Player;
 import com.trianasalesianos.dam.Soccer.Football.player.service.PlayerService;
 import com.trianasalesianos.dam.Soccer.Football.search.util.SearchCriteria;
 import com.trianasalesianos.dam.Soccer.Football.search.util.SearchCriteriaExtractor;
+import com.trianasalesianos.dam.Soccer.Football.team.dto.GetTeamDto;
+import com.trianasalesianos.dam.Soccer.Football.team.dto.NewTeamDto;
+import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,9 +31,9 @@ import java.util.List;
 @RequestMapping("/player")
 public class PlayerController {
 
-    private PlayerService playerService;
+    private final PlayerService playerService;
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/")
     public Page<GetPlayerDto> getAllPlayers(@RequestParam(value = "search", defaultValue = "") String search,
                                             @PageableDefault(size = 15, page = 0) Pageable pageable){
@@ -41,26 +45,28 @@ public class PlayerController {
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/{id}")
     public GetPlayerDto getPlayerById(@PathVariable Long id){
-        return GetPlayerDto.fromPlayer(playerService.findById(id).orElse(null));
+        return GetPlayerDto.fromPlayer(playerService.findById(id));
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/")
-    public ResponseEntity<GetPlayerDto> createPlayer(@Valid @RequestBody Player player){
+    public ResponseEntity<GetPlayerDto> createNewPlayer(@Valid @RequestBody NewPlayerDto newPlayerDto) {
 
-        Player created = playerService.save(player);
+        Player created = playerService.save(newPlayerDto);
 
         URI createdURI = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(created.getId()).toUri();
 
+
         return ResponseEntity
                 .created(createdURI)
                 .body(GetPlayerDto.fromPlayer(created));
+
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     @PutMapping("/{id}")
     public GetPlayerDto editPlayer(@PathVariable Long id, @Valid @RequestBody EditPlayerDto editPlayerDto){
 

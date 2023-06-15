@@ -98,7 +98,7 @@ public class LeagueController {
                     content = @Content),
     })
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @GetMapping("/")
     public Page<GetLeagueDto> getAll(@RequestParam(value = "search", defaultValue = "") String search,
                                       @PageableDefault(size = 15, page = 0 )Pageable pageable) {
