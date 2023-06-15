@@ -63,7 +63,6 @@ public class PlayerService {
         return repository.findById(id)
                 .map(player -> {
                     player.setName(editPlayerDto.getName());
-                    player.setAge(editPlayerDto.getAge());
                     player.setCountry(editPlayerDto.getCountry());
                     player.setHeight(editPlayerDto.getHeight());
                     player.setJerseyNumber(editPlayerDto.getJerseyNumber());

@@ -45,7 +45,6 @@ class LoginViewController: UIViewController {
                     return
                 }
                 Defaults.save(key: Constants.Defaults.token, value: token)
-                
                 self.getUser(with: token) { result in
                     switch result {
                     case .success(let user):
@@ -63,7 +62,7 @@ class LoginViewController: UIViewController {
                                 self.present(alert, animated: true, completion: nil)
                             }
                         }
-                    case .failure(let error):
+                    case .failure(_):
                         DispatchQueue.main.async {
                             let alert = UIAlertController(title: "Error", message: "Vaya!! Ha habido un error vuelva a intentarlo más tarde.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Cerrar", style: .default, handler: nil))
@@ -120,7 +119,7 @@ extension LoginViewController{
     }
     
     func getUser(with token: String, completion: @escaping (Result<User, Error>) -> Void) {
-        guard let url = URL(string: Constants.URLs.user) else {
+        guard let url = URL(string: "http://localhost:8080/user/me") else {
             return
         }
         

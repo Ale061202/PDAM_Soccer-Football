@@ -12,6 +12,7 @@ struct Constants {
         static let login: String = "\(baseUrl)/auth/login"
         static let user: String = "\(baseUrl)/user/me"
         static let post: String = "\(baseUrl)/post/"
+        static let getImage: String = "\(baseUrl)/download"
     }
     
     struct Defaults {

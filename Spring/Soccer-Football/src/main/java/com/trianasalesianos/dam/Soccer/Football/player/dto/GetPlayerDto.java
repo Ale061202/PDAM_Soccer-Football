@@ -13,8 +13,11 @@ public class GetPlayerDto {
 
     private String name;
 
+<<<<<<< HEAD
     private String age;
 
+=======
+>>>>>>> 1-develop-mobile
     private String position;
 
     private int jerseyNumber;
