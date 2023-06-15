@@ -13,6 +13,8 @@ struct Constants {
         static let user: String = "\(baseUrl)/user/me"
         static let post: String = "\(baseUrl)/post/"
         static let getImage: String = "\(baseUrl)/download"
+        static let player: String = "\(baseUrl)/player/"
+
     }
     
     struct Defaults {

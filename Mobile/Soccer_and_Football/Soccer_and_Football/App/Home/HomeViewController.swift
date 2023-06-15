@@ -20,15 +20,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         getPosts(with: Defaults.get(key: Constants.Defaults.token))
-        getImage(with: Defaults.get(key: Constants.Defaults.token), imageURLString: post?.image ?? "") { result in
-            DispatchQueue.main.async {
-                    if let image = result {
-                        print("Se han metido las imagenes")
-                    } else {
-                        print("No se han metido las imagenes")
-                    }
-                }
-        }
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -75,7 +67,7 @@ extension HomeViewController {
         }.resume()
     }
     
-    func getImage(with token: String, imageURLString: String, completion: @escaping (UIImage?) -> Void) {
+    /*func getImage(with token: String, imageURLString: String, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: Constants.URLs.getImage + "/\(imageURLString)") else {
             print("URL no válida")
             completion(nil)
@@ -112,7 +104,7 @@ extension HomeViewController {
                 completion(nil)
             }
         }.resume()
-    }
+    }*/
     
 }
 
@@ -127,12 +119,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let post = self.all[indexPath.row]
         cell.commentHomeView.text = post.title
         cell.usernameHomeView.text = post.author
-        
-        getImage(with: Constants.Defaults.token, imageURLString: post.image) { image in
-            DispatchQueue.main.async {
-                cell.imageHomeView.image = image
-            }
-        }
         
         return cell
     }

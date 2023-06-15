@@ -10,48 +10,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="224" id="KGk-i7-Jjw" customClass="HomeTableViewCell" customModule="Soccer_and_Football" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="427" height="224"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="KGk-i7-Jjw" customClass="HomeTableViewCell" customModule="Soccer_and_Football" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="427" height="99"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="427" height="224"/>
+                <rect key="frame" x="0.0" y="0.0" width="427" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcQ-gr-hZJ">
-                        <rect key="frame" x="225" y="27" width="80" height="18"/>
+                        <rect key="frame" x="20" y="40" width="80" height="18"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comentario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKY-2H-ypg">
-                        <rect key="frame" x="224.99999999999997" y="62" width="79.666666666666657" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Comentario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKY-2H-ypg">
+                        <rect key="frame" x="147" y="40" width="244" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hV-st-ty4">
-                        <rect key="frame" x="43" y="51" width="100" height="100"/>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="rcQ-gr-hZJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="J3m-EH-N1I"/>
-                    <constraint firstAttribute="trailing" secondItem="rcQ-gr-hZJ" secondAttribute="trailing" constant="122" id="Mbj-0w-tCR"/>
-                    <constraint firstItem="sKY-2H-ypg" firstAttribute="leading" secondItem="rcQ-gr-hZJ" secondAttribute="leading" id="R5v-HZ-D4W"/>
-                    <constraint firstItem="8hV-st-ty4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="51" id="fan-nE-jx8"/>
-                    <constraint firstAttribute="bottom" secondItem="8hV-st-ty4" secondAttribute="bottom" constant="73" id="iIQ-Hq-ZyM"/>
-                    <constraint firstItem="rcQ-gr-hZJ" firstAttribute="leading" secondItem="8hV-st-ty4" secondAttribute="trailing" constant="82" id="kNL-1M-tIC"/>
-                    <constraint firstItem="8hV-st-ty4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="43" id="mJ3-u3-z1V"/>
-                    <constraint firstAttribute="bottom" secondItem="sKY-2H-ypg" secondAttribute="bottom" constant="144" id="vAi-OC-Tjw"/>
-                    <constraint firstItem="sKY-2H-ypg" firstAttribute="top" secondItem="rcQ-gr-hZJ" secondAttribute="bottom" constant="17" id="z1N-1Y-3z5"/>
+                    <constraint firstItem="rcQ-gr-hZJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="J3m-EH-N1I"/>
+                    <constraint firstAttribute="trailing" secondItem="rcQ-gr-hZJ" secondAttribute="trailing" constant="327" id="Mbj-0w-tCR"/>
+                    <constraint firstItem="sKY-2H-ypg" firstAttribute="leading" secondItem="rcQ-gr-hZJ" secondAttribute="leading" constant="127" id="R5v-HZ-D4W"/>
+                    <constraint firstAttribute="bottom" secondItem="sKY-2H-ypg" secondAttribute="bottom" constant="41" id="vAi-OC-Tjw"/>
+                    <constraint firstItem="sKY-2H-ypg" firstAttribute="top" secondItem="rcQ-gr-hZJ" secondAttribute="bottom" constant="-18" id="z1N-1Y-3z5"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="commentHomeView" destination="sKY-2H-ypg" id="2Cd-j5-hBU"/>
-                <outlet property="imageHomeView" destination="8hV-st-ty4" id="Ezq-a9-Bjd"/>
                 <outlet property="usernameHomeView" destination="rcQ-gr-hZJ" id="qyY-jA-fDd"/>
             </connections>
-            <point key="canvasLocation" x="127.48091603053435" y="50.70422535211268"/>
+            <point key="canvasLocation" x="127.48091603053435" y="6.6901408450704229"/>
         </tableViewCell>
     </objects>
 </document>
