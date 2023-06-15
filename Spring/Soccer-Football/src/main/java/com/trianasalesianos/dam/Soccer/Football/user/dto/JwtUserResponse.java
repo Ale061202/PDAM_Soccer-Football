@@ -15,9 +15,13 @@ import lombok.experimental.SuperBuilder;
 public class JwtUserResponse extends UserResponse{
 
     private String token;
+<<<<<<< HEAD
 
     private String refreshToken;
 
+=======
+    private String refreshToken;
+>>>>>>> 1-develop-mobile
     public JwtUserResponse(UserResponse userResponse) {
 
     }
@@ -25,7 +29,11 @@ public class JwtUserResponse extends UserResponse{
     public static JwtUserResponse of (User user, String token, String refreshToken) {
         JwtUserResponse result = new JwtUserResponse(UserResponse.fromUser(user));
         result.setToken(token);
+<<<<<<< HEAD
         result.setRefreshToken((refreshToken));
+=======
+        result.setRefreshToken(refreshToken);
+>>>>>>> 1-develop-mobile
         return result;
 
     }

@@ -37,8 +37,8 @@ insert into team (id, team_name, league_id) values (NEXTVAL('hibernate_sequence'
 insert into team (id, team_name, league_id) values (NEXTVAL('hibernate_sequence'), 'Celta de Vigo', 2)
 insert into team (id, team_name, league_id) values (NEXTVAL('hibernate_sequence'), 'Espanyol', 2)
 
-insert into post (id , date , image , title , user_id) values (NEXTVAL('hibernate_sequence'),current_timestamp,'porcinosfc.png','El mejor dia de mi vida','d55285a1-154f-4956-8498-cad29c58fb4d')
-insert into post (id , date , image , title , user_id) values (NEXTVAL('hibernate_sequence'),current_timestamp,'porcinosfc.png','El peor dia de mi vida','d55285a1-154f-4956-8498-cad29c58fb4d')
+insert into post (id , date , image , title , user_id) values (NEXTVAL('hibernate_sequence'),current_timestamp,'logoWindows.png','El mejor dia de mi vida','d55285a1-154f-4956-8498-cad29c58fb4d')
+insert into post (id , date , image , title , user_id) values (NEXTVAL('hibernate_sequence'),current_timestamp,'logoWindows.png','El peor dia de mi vida','d55285a1-154f-4956-8498-cad29c58fb4d')
 
 insert into comment (id, content, date , post_id , user_id) values (NEXTVAL('hibernate_sequence'),'No es muy entretenida',current_timestamp , 34,'d55285a1-154f-4956-8498-cad29c58fb4d')
 insert into comment (id, content, date , post_id , user_id) values (NEXTVAL('hibernate_sequence'), 'Es muy entretenida',current_timestamp , 34,'d55285a1-154f-4956-8498-cad29c58fb4d')
@@ -49,4 +49,8 @@ insert into comment (id, content, date , post_id , user_id) values (NEXTVAL('hib
 insert into comment (id, content, date , post_id , user_id) values (NEXTVAL('hibernate_sequence'), 'No me gusta nada tu foto',current_timestamp , 35,'d55285a1-154f-4956-8498-cad29c58fb4d')
 insert into comment (id, content, date , post_id , user_id) values (NEXTVAL('hibernate_sequence'), 'Es muy entretenida',current_timestamp , 35,'d55285a1-154f-4956-8498-cad29c58fb4d')
 
+<<<<<<< HEAD
 insert into player (id , age , country , height , jersey_number , name , position , weight , team_id) values (NEXTVAL('hibernate_sequence'),'33','España' , 176, 10, 'Sergio Canales','midfielder',65,15)
+=======
+insert into player (id , country , height , jersey_number , name , position , weight , team_id) values (NEXTVAL('hibernate_sequence'),'España' , 176, 10, 'Sergio Canales','centrocampista',65,15)
+>>>>>>> 1-develop-mobile

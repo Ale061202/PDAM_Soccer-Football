@@ -5,15 +5,22 @@
 //  Created by Alejandro Fernandez Gomez-Caminero on 1/6/23.
 //
 
-// MARK: - Post
+struct PostsResponse: Codable {
+    let content: [Post]
+}
+
 struct Post: Codable {
     let id: Int
-    let image, title, author, upload: String
+    let image: String
+    let title: String
+    let author: String
+    let upload: String
     let comments: [Comment]
 }
 
-// MARK: - Comment
 struct Comment: Codable {
     let id: Int
-    let content, author, upload: String
+    let content: String
+    let author: String
+    let upload: String
 }
