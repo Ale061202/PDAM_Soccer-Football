@@ -9,8 +9,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 public class NewTeamDto {
-    @UniqueUsername(message = "{teamDto.teamName.unique}")
-    @NotEmpty(message = "{teamDto.teamName.notempty}")
+
     private String teamName;
 
 

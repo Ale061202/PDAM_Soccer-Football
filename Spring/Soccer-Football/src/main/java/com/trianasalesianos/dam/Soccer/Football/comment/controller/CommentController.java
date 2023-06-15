@@ -135,7 +135,7 @@ public class CommentController {
                     content = @Content),
     })
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{id}")
     public GetCommentDto getCommentById(@PathVariable Long id) {
 

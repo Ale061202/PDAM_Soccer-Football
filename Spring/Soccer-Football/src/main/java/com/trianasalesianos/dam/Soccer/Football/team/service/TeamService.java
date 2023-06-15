@@ -1,5 +1,6 @@
 package com.trianasalesianos.dam.Soccer.Football.team.service;
 
+import com.trianasalesianos.dam.Soccer.Football.comment.model.Comment;
 import com.trianasalesianos.dam.Soccer.Football.search.spec.TeamSpecificationBuilder;
 import com.trianasalesianos.dam.Soccer.Football.search.util.SearchCriteria;
 import com.trianasalesianos.dam.Soccer.Football.team.dto.EditTeamDto;
@@ -32,8 +33,9 @@ public class TeamService {
         return repository.findAll();
     }
 
-    public Optional<Team> findById(Long id) {
-        return repository.findById(id);
+    public Team findById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("No user with id: " + id));
 
     }
 

@@ -18,6 +18,8 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -67,6 +69,11 @@ public class UserService {
         return createUser(createUserRequest, EnumSet.of(UserRole.ADMIN));
     }
 
+    public List<UserResponse> findAllUsers() {
+        List<User> data = userRepository.findAll();
+        return data.stream().map(UserResponse::fromUser).collect(Collectors.toList());
+    }
+
     public List<User> findAll() {
         return userRepository.findAll();
     }
@@ -109,7 +116,6 @@ public class UserService {
     public UserDetailsResponse getByUsername(String username){
         User user= userRepository.findFirstByUsername(username)
                 .orElseThrow(() ->  new UserNotFoundException());
-
         return UserDetailsResponse.fromUser(user);
     }
 

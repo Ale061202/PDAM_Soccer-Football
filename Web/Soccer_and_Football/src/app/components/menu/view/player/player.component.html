@@ -1,1 +1,39 @@
-<p>player works!</p>
+<div class="contenedor-central">
+    <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="page" [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons class="table">
+    </mat-paginator>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Peso (kg)</th>
+          <th>Estatura (cm)</th>
+          <th>Dorsal</th>
+          <th>Posición</th>
+          <th>Equipo</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of playerList">
+          <td>{{ player.id }}</td>
+          <td>{{ player.name }}</td>
+          <td>{{ player.age }}</td>
+          <td>{{ player.weight }}</td>
+          <td>{{ player.height }}</td>
+          <td>{{ player.jerseyNumber }}</td>
+          <td>{{ player.position }}</td>
+          <td>{{ player.team }}</td>
+          <td>
+            <button class="btn-edit" (click)="editPlayer(player)">Editar</button>
+          </td>
+          <td>
+            <button class="btn-delete" (click)="deletePlayer(player)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

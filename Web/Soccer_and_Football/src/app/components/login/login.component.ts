@@ -1,8 +1,10 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/models/loginRequest.interface';
 import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 import { UtilService } from 'src/app/services/util.service';
 
 
@@ -18,7 +20,7 @@ export class LoginComponent {
   ocultarPassword: boolean = true;
   mostrarLoading: boolean = false;
 
-  constructor(private fb: FormBuilder, private router: Router, private _loginService: LoginService, private _utilService: UtilService) {
+  constructor(private fb: FormBuilder, private router: Router, private _loginService: LoginService, private _utilService: UtilService, private _userService: UserService) {
     this.formularioLogin = this.fb.group({
       username: ["", Validators.required],
       password: ["", Validators.required]
@@ -39,7 +41,13 @@ export class LoginComponent {
         if (data) {
           this._utilService.saveUserSession(data)
           localStorage.setItem("auth_token", data.token)
-          this.router.navigate(["view/dashboard"])
+          this._userService.getCurrentUser().subscribe({
+            next: (userData) => {
+              localStorage.setItem('user', JSON.stringify(userData));
+              console.log(userData)
+              this.router.navigate(["view/dashboard"])
+            }
+          })
         } else {
           this._utilService.showAlert("Ha habido un error", "Vaya!!!")
         }
