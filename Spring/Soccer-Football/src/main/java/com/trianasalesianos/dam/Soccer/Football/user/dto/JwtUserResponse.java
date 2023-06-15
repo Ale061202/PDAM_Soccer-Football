@@ -15,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 public class JwtUserResponse extends UserResponse{
 
     private String token;
-
+    private String refreshToken;
     public JwtUserResponse(UserResponse userResponse) {
 
     }
@@ -23,6 +23,7 @@ public class JwtUserResponse extends UserResponse{
     public static JwtUserResponse of (User user, String token, String refreshToken) {
         JwtUserResponse result = new JwtUserResponse(UserResponse.fromUser(user));
         result.setToken(token);
+        result.setRefreshToken(refreshToken);
         return result;
 
     }

@@ -13,8 +13,6 @@ public class GetPlayerDto {
 
     private String name;
 
-    private int age;
-
     private String position;
 
     private int jerseyNumber;
