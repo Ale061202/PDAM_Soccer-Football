@@ -27,7 +27,7 @@ import java.util.List;
 @RequestMapping("/player")
 public class PlayerController {
 
-    private PlayerService playerService;
+    private final PlayerService playerService;
 
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/")

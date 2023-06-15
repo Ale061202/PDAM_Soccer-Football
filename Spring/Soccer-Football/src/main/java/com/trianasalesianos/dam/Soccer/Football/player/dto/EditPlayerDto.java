@@ -8,7 +8,6 @@ import lombok.*;
 public class EditPlayerDto {
 
     private String name;
-    private int age;
     private String country;
     private int height;
     private int jerseyNumber;

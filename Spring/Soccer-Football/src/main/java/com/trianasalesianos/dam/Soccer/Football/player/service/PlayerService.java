@@ -26,7 +26,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PlayerService {
 
-    private PlayerRepository repository;
+    private final PlayerRepository repository;
 
     public List<Player> findAll() {
 
@@ -52,7 +52,6 @@ public class PlayerService {
         return repository.findById(id)
                 .map(player -> {
                     player.setName(editPlayerDto.getName());
-                    player.setAge(editPlayerDto.getAge());
                     player.setCountry(editPlayerDto.getCountry());
                     player.setHeight(editPlayerDto.getHeight());
                     player.setJerseyNumber(editPlayerDto.getJerseyNumber());

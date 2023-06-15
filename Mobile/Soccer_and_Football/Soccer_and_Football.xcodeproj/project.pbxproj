@@ -29,6 +29,8 @@
 		53C371D72A28BA260083CD03 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C371D62A28BA250083CD03 /* Post.swift */; };
 		53F9AC982A27B4E900988324 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F9AC972A27B4E900988324 /* HomeViewController.swift */; };
 		53F9AC9A2A27B50300988324 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53F9AC992A27B50300988324 /* Home.storyboard */; };
+		A9C515EB2A386AEB00923EFA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C515E92A386AEB00923EFA /* HomeTableViewCell.swift */; };
+		A9C515EC2A386AEB00923EFA /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C515EA2A386AEB00923EFA /* HomeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		53C371D62A28BA250083CD03 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		53F9AC972A27B4E900988324 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		53F9AC992A27B50300988324 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A9C515E92A386AEB00923EFA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		A9C515EA2A386AEB00923EFA /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 			children = (
 				53F9AC972A27B4E900988324 /* HomeViewController.swift */,
 				53F9AC992A27B50300988324 /* Home.storyboard */,
+				A9C515E92A386AEB00923EFA /* HomeTableViewCell.swift */,
+				A9C515EA2A386AEB00923EFA /* HomeTableViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 				538E76682A1BEF1E00524E8A /* Profile.storyboard in Resources */,
 				5375197A2A1A98BC001C39E3 /* Login.storyboard in Resources */,
 				53AC27702A23DD5A00269D60 /* League.storyboard in Resources */,
+				A9C515EC2A386AEB00923EFA /* HomeTableViewCell.xib in Resources */,
 				5375196E2A1A9784001C39E3 /* LaunchScreen.storyboard in Resources */,
 				5375196B2A1A9784001C39E3 /* Assets.xcassets in Resources */,
 				537519692A1A9782001C39E3 /* Main.storyboard in Resources */,
@@ -293,6 +300,7 @@
 				537519662A1A9782001C39E3 /* ViewController.swift in Sources */,
 				53AC27722A23DD6700269D60 /* LeagueViewController.swift in Sources */,
 				53C371D72A28BA260083CD03 /* Post.swift in Sources */,
+				A9C515EB2A386AEB00923EFA /* HomeTableViewCell.swift in Sources */,
 				537519812A1A9C86001C39E3 /* LoginResponse.swift in Sources */,
 				53AC276C2A23DD0B00269D60 /* PhotoViewController.swift in Sources */,
 				537519622A1A9782001C39E3 /* AppDelegate.swift in Sources */,
