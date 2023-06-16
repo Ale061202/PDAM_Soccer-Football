@@ -212,8 +212,8 @@
 			children = (
 				53AC276F2A23DD5A00269D60 /* League.storyboard */,
 				53AC27712A23DD6700269D60 /* LeagueViewController.swift */,
-				A9C516052A3BBB4200923EFA /* PlayerTableViewCell.swift */,
 				A9C516062A3BBB4200923EFA /* PlayerTableViewCell.xib */,
+				A9C516052A3BBB4200923EFA /* PlayerTableViewCell.swift */,
 			);
 			path = Football;
 			sourceTree = "<group>";

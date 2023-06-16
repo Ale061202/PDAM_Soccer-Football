@@ -20,10 +20,7 @@ public class Player {
 
     private String name;
 
-<<<<<<< HEAD
     private String age;
-=======
->>>>>>> 1-develop-mobile
 
     private int height;
 
