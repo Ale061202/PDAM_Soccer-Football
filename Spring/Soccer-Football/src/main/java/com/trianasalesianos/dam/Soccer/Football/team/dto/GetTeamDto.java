@@ -1,7 +1,11 @@
 package com.trianasalesianos.dam.Soccer.Football.team.dto;
 
+import com.trianasalesianos.dam.Soccer.Football.player.dto.GetPlayerDto;
 import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
@@ -11,6 +15,7 @@ public class GetTeamDto {
     private Long id;
 
     private String teamName;
+
 
 
     public static GetTeamDto fromTeam(Team team){

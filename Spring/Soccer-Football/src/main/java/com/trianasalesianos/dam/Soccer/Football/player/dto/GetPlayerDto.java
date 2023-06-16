@@ -13,6 +13,8 @@ public class GetPlayerDto {
 
     private String name;
 
+    private String age;
+
     private String position;
 
     private int jerseyNumber;
@@ -27,6 +29,7 @@ public class GetPlayerDto {
         return GetPlayerDto.builder()
                 .id(player.getId())
                 .name(player.getName())
+                .age(player.getAge())
                 .position(player.getPosition())
                 .jerseyNumber(player.getJerseyNumber())
                 .height(player.getHeight())

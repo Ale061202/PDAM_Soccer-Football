@@ -9,6 +9,7 @@ public class NewPlayerDto {
 
     private String name;
 
+    private String age;
     private String position;
 
     private int height;

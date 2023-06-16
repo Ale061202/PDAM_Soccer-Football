@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Editar Equipo</h2>
+<mat-dialog-content [formGroup]="editForm" class="form-content">
+  <div class="form-row">
+    <mat-form-field class="form-field">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Edad</mat-label>
+      <input matInput formControlName="age">
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field class="form-field">
+      <mat-label>Posición</mat-label>
+      <input matInput formControlName="position">
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Dorsal</mat-label>
+      <input matInput formControlName="jerseyNumber">
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field class="form-field">
+      <mat-label>Estatura</mat-label>
+      <input matInput formControlName="height">
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Peso</mat-label>
+      <input matInput formControlName="weight">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button (click)="onSave()">Guardar</button>
+</mat-dialog-actions>

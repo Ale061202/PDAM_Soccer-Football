@@ -1,1 +1,27 @@
-<p>league works!</p>
+<div class="contenedor-central">
+    <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="page" [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons class="table">
+    </mat-paginator>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let league of leagueList">
+          <td>{{ league.id }}</td>
+          <td>{{ league.league_name }}</td>
+          <td>
+            <button class="btn-edit" (click)="editLeague(league)">Editar</button>
+          </td>
+          <td>
+            <button class="btn-delete" (click)="deleteLeague(league)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

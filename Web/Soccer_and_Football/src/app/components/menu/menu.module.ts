@@ -5,7 +5,7 @@ import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { LeagueComponent } from './view/league/league.component';
 import { PlayerComponent } from './view/player/player.component';
 import { TeamComponent } from './view/team/team.component';
-import { UserComponent } from './view/user/user.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -13,11 +13,11 @@ import { UserComponent } from './view/user/user.component';
     LeagueComponent,
     PlayerComponent,
     TeamComponent,
-    UserComponent
   ],
   imports: [
     CommonModule,
-    MenuRoutingModule
+    MenuRoutingModule,
+    MatPaginatorModule
   ]
 })
 export class MenuModule { }
