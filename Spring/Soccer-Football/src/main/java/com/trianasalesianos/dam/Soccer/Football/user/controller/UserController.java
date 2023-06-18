@@ -172,6 +172,11 @@ public class UserController {
 
     }
 
+    @PostMapping("/auth/logout")
+    public ResponseEntity<?> logOut(@AuthenticationPrincipal User user) {
+        refreshTokenService.deleteByUser(user);
+        return ResponseEntity.noContent().build();
+    }
 
     @Operation(summary = "Get the current user")
     @ApiResponses(value = {
@@ -189,6 +194,7 @@ public class UserController {
                     description = "User not found",
                     content = @Content),
     })
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     @GetMapping("/user/me")
     public UserDetailsResponse getCurrentUserProfile(@AuthenticationPrincipal User user){
         return userService.getByUsername(user.getUsername());
