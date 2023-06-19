@@ -15,7 +15,7 @@ import java.util.Set;
 @Builder
 public class UserDetailsResponse {
     private String username, avatar, firstName, email, lastName;
-    private String phone;
+    private int phone;
     private Set<UserRole> roles;
 
     public static UserDetailsResponse fromUser(User user){

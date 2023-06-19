@@ -54,7 +54,7 @@ public class User implements UserDetails {
 
     private String last_name;
 
-    private String phone;
+    private int phone;
 
     private String email;
 

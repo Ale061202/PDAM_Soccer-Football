@@ -31,7 +31,7 @@ public class League {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    
+
     public void addTeamToLeague(Team t){
         teams.add(t);
         t.setLeague(this);

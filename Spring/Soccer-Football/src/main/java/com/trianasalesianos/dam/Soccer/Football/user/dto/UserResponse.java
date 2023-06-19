@@ -22,7 +22,7 @@ public class UserResponse {
 
     protected String id;
     protected String username, avatar, first_name,last_name,email;
-    protected String phone;
+    protected int phone;
     protected String token;
     protected Set<UserRole> roles;
 
