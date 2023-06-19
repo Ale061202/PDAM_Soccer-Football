@@ -22,7 +22,7 @@ public class CreateUserRequest {
 
     private String last_name;
 
-    private String phone;
+    private int phone;
 
     private String email;
 

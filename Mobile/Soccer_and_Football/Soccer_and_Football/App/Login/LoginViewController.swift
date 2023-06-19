@@ -29,6 +29,15 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.cornerRadius = 12
     }
     
+    @IBAction func registerButtonTapped(_ sender: Any) {
+        if let registerVc = self.navigationController?.viewControllers.first(where: { $0 is RegisterViewController }) {
+            self.navigationController?.popToViewController(registerVc, animated: true)
+        } else {
+            guard let signUpVc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
+            self.navigationController?.pushViewController(signUpVc, animated: true)
+        }
+    }
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
         guard let username = usernameTextField.text,let password = passwordTextField.text else {
             return
@@ -119,7 +128,7 @@ extension LoginViewController{
     }
     
     func getUser(with token: String, completion: @escaping (Result<User, Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:8080/user/me") else {
+        guard let url = URL(string: Constants.URLs.user) else {
             return
         }
         

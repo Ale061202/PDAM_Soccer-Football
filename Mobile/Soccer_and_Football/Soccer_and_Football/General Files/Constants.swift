@@ -14,6 +14,7 @@ struct Constants {
         static let post: String = "\(baseUrl)/post/"
         static let getImage: String = "\(baseUrl)/download"
         static let player: String = "\(baseUrl)/player/"
+        static let register: String = "\(baseUrl)/auth/register/user"
 
     }
     
