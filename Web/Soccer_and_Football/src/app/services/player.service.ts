@@ -25,25 +25,36 @@ export class PlayerService {
     );
   }
 
-  editPlayer(editDTO: PlayerRequest ,id: number) : Observable<LeagueResponse> {
+  editPlayer(editDTO: PlayerRequest ,id: number) : Observable<PlayerResponse> {
     var token =localStorage.getItem('auth_token')
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.put<LeagueResponse>(
+    return this.http.put<PlayerResponse>(
       `${environment.baseUrl}/player/${id}`, editDTO, httpOptions
     );
   }
 
-  deletePlayer(id: number) : Observable<LeagueResponse> {
+  deletePlayer(id: number) : Observable<PlayerResponse> {
     var token =localStorage.getItem('auth_token')
     var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.delete<LeagueResponse>(
+    return this.http.delete<PlayerResponse>(
       `${environment.baseUrl}/player/${id}`, httpOptions
     ); 
+  }
+
+  createPlayer(editDTO: PlayerRequest): Observable<PlayerResponse> {
+    var token =localStorage.getItem('auth_token')
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this.http.post<PlayerResponse>(
+      `${environment.baseUrl}/player/`, editDTO, httpOptions
+    );
   }
 }

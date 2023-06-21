@@ -1,3 +1,5 @@
+import { League, LeagueResponse } from "./leagueResponse.interface";
+
 export interface TeamResponse {
     content:          Team[];
     pageable:         Pageable;
@@ -15,6 +17,7 @@ export interface TeamResponse {
 export interface Team {
     id:       number;
     teamName: string;
+    league: League
 }
 
 export interface Pageable {

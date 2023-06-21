@@ -12,5 +12,6 @@ public class NewTeamDto {
 
     private String teamName;
 
+    private Long idLeague;
 
 }

@@ -28,8 +28,7 @@ export class DeleteLeagueDialogComponent implements OnInit {
   }
 
   onConfirm(): void {
-    this.leagueService.deleteLeague(this.data.id)
-      .subscribe(() => {
+    this.leagueService.deleteLeague(this.data.id).subscribe(() => {
         this.dialogRef.close();
         this.confirmed.emit();
       }, error => {

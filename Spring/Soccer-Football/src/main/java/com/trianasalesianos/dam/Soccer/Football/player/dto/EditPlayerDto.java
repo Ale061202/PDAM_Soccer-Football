@@ -14,4 +14,5 @@ public class EditPlayerDto {
     private int jerseyNumber;
     private String position;
     private double weight;
+    private Long idTeam;
 }

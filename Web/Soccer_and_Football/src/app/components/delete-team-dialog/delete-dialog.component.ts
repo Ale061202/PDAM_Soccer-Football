@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Team } from 'src/app/models/teamResponse.interface';
 import { TeamService } from 'src/app/services/team.service';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -16,7 +17,7 @@ export class DeleteDialogComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<DeleteDialogComponent>,
     private teamService: TeamService,
-    private ngxToast: ToastrService,
+    private _utilService: UtilService,
     @Inject(MAT_DIALOG_DATA) public data: Team
   ) { }
 
@@ -34,7 +35,7 @@ export class DeleteDialogComponent implements OnInit {
         this.dialogRef.close();
         this.confirmed.emit();
       }, error => {
-        this.ngxToast.error(`No se ha podido eliminar la propiedad con el id:${this.data.id}`, 'Error');
+        this._utilService.showAlert("No puedes borrar esta liga ya que tiene equipos en ella", "Vaya!!!")
       });
 
   }

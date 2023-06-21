@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { tap } from 'rxjs';
+import { CreateLeagueDialogComponent } from 'src/app/components/create-league-dialog/create-league-dialog.component';
+import { DeleteLeagueDialogComponent } from 'src/app/components/delete-league-dialog/delete-league-dialog.component';
 import { DeleteDialogComponent } from 'src/app/components/delete-team-dialog/delete-dialog.component';
 import { EditLeagueDialogComponent } from 'src/app/components/edit-league-dialog/edit-league-dialog.component';
 import { League } from 'src/app/models/leagueResponse.interface';
@@ -55,12 +57,20 @@ export class LeagueComponent implements OnInit {
   }
 
   deleteLeague(league: League) {
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+    const dialogRef = this.dialog.open(DeleteLeagueDialogComponent, {
       data: league
     });
 
     dialogRef.componentInstance.confirmed.subscribe(() => {
       this.loadData(this.page, this.pageSize);
     });
+  }
+
+  createLeague() {
+      const dialogRef = this.dialog.open(CreateLeagueDialogComponent, {});
+        dialogRef.afterClosed().subscribe(() => {
+          this.paginator.pageIndex = 0;
+          this.loadData(this.paginator.pageIndex, this.paginator.pageSize);
+        });
   }
 }

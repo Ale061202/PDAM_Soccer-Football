@@ -14,6 +14,7 @@ import com.trianasalesianos.dam.Soccer.Football.search.spec.LeagueSpecificationB
 import com.trianasalesianos.dam.Soccer.Football.search.spec.PlayerSpecificationBuilder;
 import com.trianasalesianos.dam.Soccer.Football.search.util.SearchCriteria;
 import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
+import com.trianasalesianos.dam.Soccer.Football.team.service.TeamService;
 import com.trianasalesianos.dam.Soccer.Football.user.dto.CreateUserRequest;
 import com.trianasalesianos.dam.Soccer.Football.user.model.User;
 import com.trianasalesianos.dam.Soccer.Football.user.model.UserRole;
@@ -34,6 +35,8 @@ public class PlayerService {
 
     private final PlayerRepository repository;
 
+    private final TeamService teamService;
+
     public List<Player> findAll() {
 
         List<Player> result = repository.findAll();
@@ -50,29 +53,39 @@ public class PlayerService {
     }
 
     public Player save(NewPlayerDto newPlayerDto) {
+        Team team = teamService.findById(newPlayerDto.getIdTeam());
+
         Player player =  Player.builder()
                 .name(newPlayerDto.getName())
-
+                .country(newPlayerDto.getCountry())
+                .age(newPlayerDto.getAge())
+                .position(newPlayerDto.getPosition())
+                .height(newPlayerDto.getHeight())
+                .weight(newPlayerDto.getWeight())
+                .jerseyNumber(newPlayerDto.getJerseyNumber())
+                .team(team)
                 .build();
 
         return repository.save(player);
     }
 
     public Player editDetails(Long id, EditPlayerDto editPlayerDto) {
+        Team team = teamService.findById(editPlayerDto.getIdTeam());
 
         return repository.findById(id)
                 .map(player -> {
                     player.setName(editPlayerDto.getName());
+                    player.setAge(editPlayerDto.getAge());
                     player.setCountry(editPlayerDto.getCountry());
                     player.setHeight(editPlayerDto.getHeight());
                     player.setJerseyNumber(editPlayerDto.getJerseyNumber());
                     player.setPosition(editPlayerDto.getPosition());
                     player.setWeight(editPlayerDto.getWeight());
+                    player.setTeam(team);
+
                     return repository.save(player);
                 })
-                .orElseThrow(() ->new EntityNotFoundException("No user with id: " + id));
-
-
+                .orElseThrow(() -> new EntityNotFoundException("No user with id: " + id));
     }
 
     public Page<Player> search(List<SearchCriteria> params, Pageable pageable) {

@@ -63,7 +63,7 @@ extension RegisterViewController: UITextFieldDelegate {
             let newString = (text as NSString).replacingCharacters(in: range, with: string)
             let filteredText = newString.filter { $0.isNumber }
             
-            let phoneNumberLengthLimit = 9
+            let phoneNumberLengthLimit = 10
             if filteredText.count > phoneNumberLengthLimit {
                 return false
             }

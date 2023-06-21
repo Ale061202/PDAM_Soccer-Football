@@ -16,6 +16,10 @@ import { EditLeagueDialogComponent } from './components/edit-league-dialog/edit-
 import { DeleteLeagueDialogComponent } from './components/delete-league-dialog/delete-league-dialog.component';
 import { DeletePlayerDialogComponent } from './components/delete-player-dialog/delete-player-dialog.component';
 import { EditPlayerDialogComponent } from './components/edit-player-dialog/edit-player-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import { CreateTeamDialogComponent } from './components/create-team-dialog/create-team-dialog.component';
+import { CreatePlayerDialogComponent } from './components/create-player-dialog/create-player-dialog.component';
+import { CreateLeagueDialogComponent } from './components/create-league-dialog/create-league-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +31,9 @@ import { EditPlayerDialogComponent } from './components/edit-player-dialog/edit-
     DeleteLeagueDialogComponent,
     DeletePlayerDialogComponent,
     EditPlayerDialogComponent,
+    CreateTeamDialogComponent,
+    CreatePlayerDialogComponent,
+    CreateLeagueDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,7 @@ import { EditPlayerDialogComponent } from './components/edit-player-dialog/edit-
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialImportsModule,
+    MatSelectModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
   ],

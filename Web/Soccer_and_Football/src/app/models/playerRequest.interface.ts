@@ -5,4 +5,6 @@ export interface PlayerRequest {
     height:       number;
     weight:       number;
     jerseyNumber: number;
+    country: string;
+    idTeam: any
 }

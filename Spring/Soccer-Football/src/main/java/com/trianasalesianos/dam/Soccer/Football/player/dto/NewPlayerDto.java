@@ -8,13 +8,11 @@ import lombok.*;
 public class NewPlayerDto {
 
     private String name;
-
     private String age;
-    private String position;
-
+    private String country;
     private int height;
-
-    private double weight;
-
     private int jerseyNumber;
+    private String position;
+    private double weight;
+    private Long idTeam;
 }

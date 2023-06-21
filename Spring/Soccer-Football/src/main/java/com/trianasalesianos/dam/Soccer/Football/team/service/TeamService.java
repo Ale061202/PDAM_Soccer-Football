@@ -1,6 +1,8 @@
 package com.trianasalesianos.dam.Soccer.Football.team.service;
 
 import com.trianasalesianos.dam.Soccer.Football.comment.model.Comment;
+import com.trianasalesianos.dam.Soccer.Football.league.model.League;
+import com.trianasalesianos.dam.Soccer.Football.league.service.LeagueService;
 import com.trianasalesianos.dam.Soccer.Football.search.spec.TeamSpecificationBuilder;
 import com.trianasalesianos.dam.Soccer.Football.search.util.SearchCriteria;
 import com.trianasalesianos.dam.Soccer.Football.team.dto.EditTeamDto;
@@ -22,6 +24,8 @@ import java.util.Optional;
 public class TeamService {
     private final TeamRepository repository;
 
+    private final LeagueService leagueService;
+
 
     public List<Team> findAll() {
 
@@ -40,18 +44,21 @@ public class TeamService {
     }
 
     public Team save(NewTeamDto newTeamDto) {
+        Optional<League> league = leagueService.findById(newTeamDto.getIdLeague());
         return repository.save(
                 Team.builder()
                         .teamName(newTeamDto.getTeamName())
+                        .league(league.get())
                         .build()
         );
     }
 
     public Team editDetails(Long id, EditTeamDto editTeamDto) {
-
+        Optional<League> league = leagueService.findById(editTeamDto.getIdLeague());
         return repository.findById(id)
                 .map(team -> {
                     team.setTeamName(editTeamDto.getTeamName());
+                    team.setLeague(league.get());
                     return repository.save(team);
                 })
                 .orElseThrow(() ->new EntityNotFoundException("No team with id: " + id));

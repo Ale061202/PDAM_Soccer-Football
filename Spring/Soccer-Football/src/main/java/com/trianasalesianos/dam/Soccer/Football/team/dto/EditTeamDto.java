@@ -10,4 +10,6 @@ import javax.validation.constraints.NotEmpty;
 public class EditTeamDto {
     @NotEmpty(message = "{teamDto.teamName.notempty}")
     private String teamName;
+
+    private Long idLeague;
 }

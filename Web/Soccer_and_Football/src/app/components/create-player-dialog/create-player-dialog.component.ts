@@ -1,17 +1,18 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { PlayerRequest } from 'src/app/models/playerRequest.interface';
-import { Player } from 'src/app/models/playerResponse.interface';
+import { EditPlayerDialogComponent } from '../edit-player-dialog/edit-player-dialog.component';
 import { PlayerService } from 'src/app/services/player.service';
 import { TeamService } from 'src/app/services/team.service';
+import { Player } from 'src/app/models/playerResponse.interface';
+import { PlayerRequest } from 'src/app/models/playerRequest.interface';
 
 @Component({
-  selector: 'app-edit-player-dialog',
-  templateUrl: './edit-player-dialog.component.html',
-  styleUrls: ['./edit-player-dialog.component.css']
+  selector: 'app-create-player-dialog',
+  templateUrl: './create-player-dialog.component.html',
+  styleUrls: ['./create-player-dialog.component.css']
 })
-export class EditPlayerDialogComponent implements OnInit {
+export class CreatePlayerDialogComponent implements OnInit {
 
   editForm: FormGroup;
   teamList: any;
@@ -24,14 +25,14 @@ export class EditPlayerDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Player
   ) {
     this.editForm = this.formBuilder.group({
-      name: [data.name, Validators.required],
-      age: [data.age, Validators.required],
-      position: [data.position, Validators.required],
-      height: [data.height, Validators.required],
-      weight: [data.weight, Validators.required],
-      jerseyNumber: [data.jerseyNumber, Validators.required],
-      country: [data.country, Validators.required],
-      team: [data.team ? data.team.id : null, Validators.required]
+      name: ['', Validators.required],
+      age: ['', Validators.required],
+      position: ['', Validators.required],
+      height: ['', Validators.required],
+      weight: ['', Validators.required],
+      jerseyNumber: ['', Validators.required],
+      country: ['', Validators.required],
+      team: [null, Validators.required]
     });    
   }
 
@@ -66,7 +67,7 @@ export class EditPlayerDialogComponent implements OnInit {
           position: this.editForm.get('position')?.value,
         };
   
-        this.playerService.editPlayer(updatedData, this.data.id).subscribe(
+        this.playerService.createPlayer(updatedData).subscribe(
           response => {
             console.log(response)
             this.dialogRef.close(response);
@@ -76,4 +77,3 @@ export class EditPlayerDialogComponent implements OnInit {
     }
   }
 }
-
