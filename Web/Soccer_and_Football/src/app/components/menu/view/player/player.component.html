@@ -1,4 +1,5 @@
 <div class="contenedor-central">
+  <button class="btn-add-player" (click)="createPlayer()">Crear Jugador</button>
     <mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageIndex]="page" [pageSizeOptions]="[5, 10, 20]"
       showFirstLastButtons class="table">
     </mat-paginator>
@@ -26,7 +27,7 @@
           <td>{{ player.height }}</td>
           <td>{{ player.jerseyNumber }}</td>
           <td>{{ player.position }}</td>
-          <td>{{ player.team }}</td>
+          <td>{{ player.team.teamName }}</td>
           <td>
             <button class="btn-edit" (click)="editPlayer(player)">Editar</button>
           </td>

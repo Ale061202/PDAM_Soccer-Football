@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { tap } from 'rxjs';
+import { CreateTeamDialogComponent } from 'src/app/components/create-team-dialog/create-team-dialog.component';
 import { DeleteDialogComponent } from 'src/app/components/delete-team-dialog/delete-dialog.component';
 import { EditTeamDialogComponent } from 'src/app/components/edit-team-dialog/edit-team-dialog.component';
 import { Team } from 'src/app/models/teamResponse.interface';
@@ -63,6 +64,14 @@ export class TeamComponent implements OnInit {
 
     dialogRef.componentInstance.confirmed.subscribe(() => {
       this.loadData(this.page, this.pageSize);
+    });
+  }
+
+  createTeam() {
+    const dialogRef = this.dialog.open(CreateTeamDialogComponent, {});
+    dialogRef.afterClosed().subscribe(() => {
+      this.paginator.pageIndex = 0;
+      this.loadData(this.paginator.pageIndex, this.paginator.pageSize);
     });
   }
 }

@@ -29,6 +29,8 @@
 		53C371D72A28BA260083CD03 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C371D62A28BA250083CD03 /* Post.swift */; };
 		53F9AC982A27B4E900988324 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F9AC972A27B4E900988324 /* HomeViewController.swift */; };
 		53F9AC9A2A27B50300988324 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53F9AC992A27B50300988324 /* Home.storyboard */; };
+		A944BD1A2A43990C0022E867 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BD192A43990C0022E867 /* ChangePasswordViewController.swift */; };
+		A944BD1D2A4426380022E867 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BD1C2A4426380022E867 /* Profile.swift */; };
 		A99E3DF92A40474200A43B33 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E3DF82A40474200A43B33 /* Register.swift */; };
 		A9C515EB2A386AEB00923EFA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C515E92A386AEB00923EFA /* HomeTableViewCell.swift */; };
 		A9C515EC2A386AEB00923EFA /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C515EA2A386AEB00923EFA /* HomeTableViewCell.xib */; };
@@ -63,6 +65,8 @@
 		53C371D62A28BA250083CD03 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		53F9AC972A27B4E900988324 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		53F9AC992A27B50300988324 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A944BD192A43990C0022E867 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		A944BD1C2A4426380022E867 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A99E3DF82A40474200A43B33 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		A9C515E92A386AEB00923EFA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		A9C515EA2A386AEB00923EFA /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 		5375197D2A1A9C49001C39E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A944BD1B2A4426280022E867 /* Profile */,
 				A99E3DF72A40473400A43B33 /* Register */,
 				A9C516092A3BBC8B00923EFA /* League */,
 				53C371D52A28BA130083CD03 /* PostScreen */,
@@ -179,6 +184,7 @@
 			children = (
 				538E76672A1BEF1E00524E8A /* Profile.storyboard */,
 				538E76692A1BEF2900524E8A /* ProfileViewController.swift */,
+				A944BD192A43990C0022E867 /* ChangePasswordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -230,6 +236,14 @@
 				53C371D62A28BA250083CD03 /* Post.swift */,
 			);
 			path = PostScreen;
+			sourceTree = "<group>";
+		};
+		A944BD1B2A4426280022E867 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A944BD1C2A4426380022E867 /* Profile.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A99E3DF72A40473400A43B33 /* Register */ = {
@@ -336,9 +350,11 @@
 				53C371D72A28BA260083CD03 /* Post.swift in Sources */,
 				A9C515EB2A386AEB00923EFA /* HomeTableViewCell.swift in Sources */,
 				537519812A1A9C86001C39E3 /* LoginResponse.swift in Sources */,
+				A944BD1D2A4426380022E867 /* Profile.swift in Sources */,
 				A9D1519D2A3F5B5D00D77C95 /* RegisterViewController.swift in Sources */,
 				53AC276C2A23DD0B00269D60 /* PhotoViewController.swift in Sources */,
 				537519622A1A9782001C39E3 /* AppDelegate.swift in Sources */,
+				A944BD1A2A43990C0022E867 /* ChangePasswordViewController.swift in Sources */,
 				537519842A1A9E8A001C39E3 /* Constants.swift in Sources */,
 				5375197F2A1A9C5A001C39E3 /* LoginRequest.swift in Sources */,
 				537519642A1A9782001C39E3 /* SceneDelegate.swift in Sources */,

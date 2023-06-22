@@ -65,6 +65,8 @@
                     <navigationItem key="navigationItem" id="PFO-KF-Z7B"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="menuLeagues" destination="def-Mz-0ye" id="hNy-SF-hC6"/>
+                        <outlet property="menuTeams" destination="Kyh-vf-KEc" id="UX6-Ff-MrK"/>
                         <outlet property="tableView" destination="XfX-sy-S10" id="HCD-Pi-W7k"/>
                     </connections>
                 </viewController>

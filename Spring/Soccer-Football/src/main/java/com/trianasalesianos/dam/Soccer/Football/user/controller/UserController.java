@@ -172,12 +172,6 @@ public class UserController {
 
     }
 
-    @PostMapping("/auth/logout")
-    public ResponseEntity<?> logOut(@AuthenticationPrincipal User user) {
-        refreshTokenService.deleteByUser(user);
-        return ResponseEntity.noContent().build();
-    }
-
     @Operation(summary = "Get the current user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",

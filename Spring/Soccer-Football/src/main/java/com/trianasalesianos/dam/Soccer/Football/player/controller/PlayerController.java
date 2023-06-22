@@ -429,15 +429,23 @@ public class PlayerController {
                                     value = """
                                             [
                                                    {
-                                                      "id": 44,
-                                                      "name": "Sergio Canales",
-                                                      "age": "33",
-                                                      "position": "Centrocampista",
-                                                      "jerseyNumber": 10,
-                                                      "height": 176,
-                                                      "weight": 65.0,
-                                                      "team": "Porcinos FC"
-                                                  }
+                                                       "id": 73,
+                                                       "name": "Harry Kane",
+                                                       "age": "37",
+                                                       "position": "Delantero",
+                                                       "jerseyNumber": 4,
+                                                       "height": 184,
+                                                       "weight": 82.0,
+                                                       "country": "Inglaterra",
+                                                       "team": {
+                                                           "id": 13,
+                                                           "teamName": "Xbuyer Team",
+                                                           "league": {
+                                                               "id": 1,
+                                                               "league_name": "KingsLeague"
+                                                           }
+                                                       }
+                                                   }
                                              ]                                         
                                             """
                             )}
@@ -475,15 +483,23 @@ public class PlayerController {
                                     value = """
                                             [
                                                  {
-                                                      "id": 44,
-                                                      "name": "Sergio Canales",
-                                                      "age": "33",
-                                                      "position": "Centrocampista",
-                                                      "jerseyNumber": 10,
-                                                      "height": 176,
-                                                      "weight": 65.0,
-                                                      "team": "Porcinos FC"
-                                                  }                                                    
+                                                       "id": 73,
+                                                       "name": "Harry Kane",
+                                                       "age": "37",
+                                                       "position": "Delantero",
+                                                       "jerseyNumber": 4,
+                                                       "height": 184,
+                                                       "weight": 82.0,
+                                                       "country": "Inglaterra",
+                                                       "team": {
+                                                           "id": 13,
+                                                           "teamName": "Xbuyer Team",
+                                                           "league": {
+                                                               "id": 1,
+                                                               "league_name": "KingsLeague"
+                                                           }
+                                                       }
+                                                   }                                                    
                                             ]                                          
                                             """
                             )}
@@ -492,7 +508,7 @@ public class PlayerController {
                     description = "Bad Player of League update Request",
                     content = @Content),
     })
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public GetPlayerDto editPlayer(@PathVariable Long id, @Valid @RequestBody EditPlayerDto editPlayerDto){
 

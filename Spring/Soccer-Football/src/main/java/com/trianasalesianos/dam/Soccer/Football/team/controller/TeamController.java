@@ -29,6 +29,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 @RequiredArgsConstructor
@@ -145,9 +146,13 @@ public class TeamController {
                                     value = """
                                             [
                                                   {
-                                                        "id": 4,
-                                                        "teamName": "Betis"
-                                                   }
+                                                        "id": 73,
+                                                        "teamName": "Barcelona B",
+                                                        "league": {
+                                                            "id": 1,
+                                                            "league_name": "KingsLeague"
+                                                        }
+                                                  }
                                              ]                                         
                                             """
                             )}
@@ -185,9 +190,13 @@ public class TeamController {
                                     value = """
                                             [
                                                     {
-                                                         "id": 4,
-                                                         "teamName": "Madrid"
-                                                     }
+                                                          "id": 10,
+                                                          "teamName": "Betis",
+                                                          "league": {
+                                                              "id": 1,
+                                                              "league_name": "KingsLeague"
+                                                          }
+                                                    }
                                             ]                                          
                                             """
                             )}
@@ -200,7 +209,7 @@ public class TeamController {
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public GetTeamDto editTeam(@PathVariable Long id, @Valid @RequestBody EditTeamDto editTeamDto) {
-
+        Logger.getLogger("test").info(String.valueOf(editTeamDto.getIdLeague()));
         Team edited = teamService.editDetails(id, editTeamDto);
 
         return GetTeamDto.fromTeam(edited);

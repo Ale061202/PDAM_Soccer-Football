@@ -1,3 +1,5 @@
+import { Team } from "./teamResponse.interface";
+
 export interface PlayerResponse {
     content:          Player[];
     pageable:         Pageable;
@@ -20,7 +22,8 @@ export interface Player {
     jerseyNumber: number;
     height:       number;
     weight:       number;
-    team:         string;
+    country:      string;
+    team:         Team;
 }
 
 export interface Pageable {

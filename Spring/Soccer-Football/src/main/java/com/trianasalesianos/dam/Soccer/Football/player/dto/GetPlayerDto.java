@@ -1,6 +1,7 @@
 package com.trianasalesianos.dam.Soccer.Football.player.dto;
 
 import com.trianasalesianos.dam.Soccer.Football.player.model.Player;
+import com.trianasalesianos.dam.Soccer.Football.team.dto.GetTeamDto;
 import com.trianasalesianos.dam.Soccer.Football.team.model.Team;
 import lombok.*;
 
@@ -23,7 +24,9 @@ public class GetPlayerDto {
 
     private double weight;
 
-    private String team;
+    private String country;
+
+    private GetTeamDto team;
 
     public static GetPlayerDto fromPlayer(Player player){
         return GetPlayerDto.builder()
@@ -34,7 +37,8 @@ public class GetPlayerDto {
                 .jerseyNumber(player.getJerseyNumber())
                 .height(player.getHeight())
                 .weight(player.getWeight())
-                .team(player.getTeam().getTeamName())
+                .country(player.getCountry())
+                .team(GetTeamDto.fromTeam(player.getTeam()))
                 .build();
     }
 

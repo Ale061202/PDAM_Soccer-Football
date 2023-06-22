@@ -27,6 +27,11 @@ class ProfileViewController: UIViewController {
         }
     }
 
+    @IBAction func editPassword(_ sender: Any) {
+        performSegue(withIdentifier: "ChangePasswordSegue", sender: nil)
+
+    }
+    
     @IBAction func logOut(_ sender: Any) {
         Defaults.removeAll()
         

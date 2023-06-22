@@ -65,3 +65,14 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .btn-add-player {
+    width: 100px;
+    margin-top: 87px;
+    transform: translateY(46px);
+    align-self: flex-start;
+    background-color: #2e9cbf;
+    border: #2e9cbf 50px;
+    border-radius: 50px;
+    color: white;
+    padding: 8px;
+  }

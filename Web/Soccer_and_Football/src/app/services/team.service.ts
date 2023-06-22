@@ -45,4 +45,15 @@ export class TeamService{
       `${environment.baseUrl}/team/${id}`, httpOptions
     ); 
   }
+
+  createTeam(editDTO: TeamRequest) : Observable<TeamResponse> {
+    var token =localStorage.getItem('auth_token')
+    var headers_object = new HttpHeaders().set("Authorization", "Bearer " + token);
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this.http.post<TeamResponse>(
+      `${environment.baseUrl}/team/create`, editDTO, httpOptions
+    );
+  }
 }

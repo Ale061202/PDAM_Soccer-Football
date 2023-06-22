@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { tap } from 'rxjs';
+import { CreatePlayerDialogComponent } from 'src/app/components/create-player-dialog/create-player-dialog.component';
 import { DeletePlayerDialogComponent } from 'src/app/components/delete-player-dialog/delete-player-dialog.component';
 import { EditPlayerDialogComponent } from 'src/app/components/edit-player-dialog/edit-player-dialog.component';
 import { Player } from 'src/app/models/playerResponse.interface';
@@ -64,6 +65,14 @@ export class PlayerComponent implements OnInit {
     dialogRef.componentInstance.confirmed.subscribe(() => {
       this.loadData(this.page, this.pageSize);
     });
+  }
+
+  createPlayer() {
+    const dialogRef = this.dialog.open(CreatePlayerDialogComponent, {});
+      dialogRef.afterClosed().subscribe(() => {
+        this.paginator.pageIndex = 0;
+        this.loadData(this.paginator.pageIndex, this.paginator.pageSize);
+      });
   }
 
 }

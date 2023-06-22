@@ -21,7 +21,8 @@ struct RegisterRequest: Codable {
 }
 
 struct RegisterResponse: Codable {
-    let id, username: String
+    let userID: String
+    let username: String
     let avatar: String
     let firstName, lastName, email: String
     let phone: Int
@@ -29,9 +30,7 @@ struct RegisterResponse: Codable {
     let roles: [String]
 
     enum CodingKeys: String, CodingKey {
-        case id, username, avatar
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case email, phone, token, roles
+        case userID = "id"
+        case username, avatar, firstName, lastName, email, phone, token, roles
     }
 }
