@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
             case .success(let loginResponse):
                 guard let token = loginResponse.token else {
                     DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Error de inicio de sesión", message: "La contraseña o el email no son correctos.", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Error de inicio de sesión", message: "La contraseña o el username no son correctos.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Cerrar", style: .default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                     }
@@ -71,12 +71,13 @@ class LoginViewController: UIViewController {
                                 self.present(alert, animated: true, completion: nil)
                             }
                         }
-                    case .failure(_):
+                    case .failure(let error):
                         DispatchQueue.main.async {
                             let alert = UIAlertController(title: "Error", message: "Vaya!! Ha habido un error vuelva a intentarlo más tarde.", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Cerrar", style: .default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                         }
+                        print("Error: \(error)")
                     }
                 }
             case .failure(_):

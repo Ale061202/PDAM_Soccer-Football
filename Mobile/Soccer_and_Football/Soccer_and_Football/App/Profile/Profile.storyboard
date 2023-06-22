@@ -53,6 +53,18 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YX9-xg-22u">
                                         <rect key="frame" x="8" y="17" width="90" height="91"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te1-Nj-gwM">
+                                        <rect key="frame" x="281" y="0.0" width="69" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Editar">
+                                            <color key="baseForegroundColor" name="Blue"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="editPassword:" destination="Z6r-la-b6P" eventType="touchUpInside" id="Qag-M1-WnZ"/>
+                                            <segue destination="ruC-A3-I9P" kind="show" identifier="ChangePasswordSegue" id="QlK-Ue-Qrx"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.86807755708885725" green="0.87747854594756303" blue="0.91913304184422351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -67,23 +79,13 @@
                                     <constraint firstItem="YX9-xg-22u" firstAttribute="top" secondItem="Jzu-fs-sVe" secondAttribute="top" constant="16" id="xTD-Lz-sfh"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JGd-ce-wPf">
-                                <rect key="frame" x="10" y="359" width="373" height="400"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="vzp-bV-sgd"/>
-                                </constraints>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TwE-97-9wb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TwE-97-9wb" firstAttribute="trailing" secondItem="JGd-ce-wPf" secondAttribute="trailing" constant="10" id="AXU-Zn-E2G"/>
                             <constraint firstItem="Jzu-fs-sVe" firstAttribute="leading" secondItem="TwE-97-9wb" secondAttribute="leading" constant="16" id="QgZ-VA-XZe"/>
                             <constraint firstItem="Jzu-fs-sVe" firstAttribute="top" secondItem="TwE-97-9wb" secondAttribute="top" constant="24" id="TV2-Kd-iCX"/>
-                            <constraint firstItem="JGd-ce-wPf" firstAttribute="leading" secondItem="TwE-97-9wb" secondAttribute="leading" constant="10" id="TkV-5P-NHJ"/>
                             <constraint firstItem="TwE-97-9wb" firstAttribute="trailing" secondItem="Jzu-fs-sVe" secondAttribute="trailing" constant="16" id="VlQ-i8-lUR"/>
-                            <constraint firstItem="TwE-97-9wb" firstAttribute="bottom" secondItem="JGd-ce-wPf" secondAttribute="bottom" constant="10" id="z17-uz-v87"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="TabBarUser" selectedImage="TabBarUser" id="F1x-HP-Bcs"/>
@@ -99,13 +101,102 @@
             </objects>
             <point key="canvasLocation" x="214.50381679389312" y="-13.380281690140846"/>
         </scene>
+        <!--Change Password View Controller-->
+        <scene sceneID="jOe-9S-YOf">
+            <objects>
+                <viewController id="ruC-A3-I9P" customClass="ChangePasswordViewController" customModule="Soccer_and_Football" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MjR-Eb-arK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cambiar contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQN-jX-fA1">
+                                <rect key="frame" x="95" y="148" width="202" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Antigua Contrseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeF-Mh-Sw4">
+                                <rect key="frame" x="95" y="222" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-B6-eiy">
+                                <rect key="frame" x="95" y="267" width="202" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="LightGrey"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nueva Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A65-Du-m9d">
+                                <rect key="frame" x="95" y="336" width="141" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LBw-Iz-fii">
+                                <rect key="frame" x="95" y="389" width="202" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="LightGrey"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVQ-x9-IN2">
+                                <rect key="frame" x="95" y="526" width="202" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="LightGrey"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYV-Db-zVQ">
+                                <rect key="frame" x="95" y="621" width="202" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Confirmar"/>
+                                <connections>
+                                    <action selector="confirmButtonTapped:" destination="ruC-A3-I9P" eventType="touchUpInside" id="RJn-Vo-H3Q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirmar Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JH-l1-NZr">
+                                <rect key="frame" x="95" y="462" width="168" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2On-VY-ROY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="x4q-yx-ktN"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="NVQ-x9-IN2" id="0eG-Du-uaa"/>
+                        <outlet property="newPassword" destination="LBw-Iz-fii" id="HYL-Ud-WTf"/>
+                        <outlet property="oldPassword" destination="oTc-B6-eiy" id="GNc-wR-4hi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b23-aO-MCP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.70992366412213" y="-13.380281690140846"/>
+        </scene>
     </scenes>
     <resources>
         <image name="SignOut" width="16" height="16"/>
         <image name="TabBarUser" width="26" height="25"/>
         <image name="photo.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.20399999618530273" green="0.77999997138977051" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Blue">
             <color red="0.23921570180000001" green="0.52941179279999995" blue="0.89411771299999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="LightGrey">
+            <color red="0.79199999570846558" green="0.80000001192092896" blue="0.8399999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

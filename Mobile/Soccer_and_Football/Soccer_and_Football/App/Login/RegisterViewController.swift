@@ -41,14 +41,17 @@ class RegisterViewController: UIViewController {
         register(username: username, firstName: firstName, lastName: lastName, password: password, email: email, phone: phone, avatar: avatar) { result in
             switch result {
             case .success:
-                print("Se ha registrado correctamente")
                 DispatchQueue.main.async {
                     if let loginViewController = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController }) {
                         self.navigationController?.popToViewController(loginViewController, animated: true)
                     }
                 }
-            case .failure:
-                print("No se ha registrado")
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    if let loginViewController = self.navigationController?.viewControllers.first(where: { $0 is LoginViewController }) {
+                        self.navigationController?.popToViewController(loginViewController, animated: true)
+                    }
+                }
             }
         }
     }

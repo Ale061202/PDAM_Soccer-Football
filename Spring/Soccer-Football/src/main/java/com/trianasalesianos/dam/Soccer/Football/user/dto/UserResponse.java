@@ -23,6 +23,7 @@ public class UserResponse {
     protected String id;
     protected String username, avatar, first_name,last_name,email;
     protected String token;
+    private int phone;
     protected Set<UserRole> roles;
 
 
@@ -35,6 +36,7 @@ public class UserResponse {
                 .first_name(user.getFirst_name())
                 .last_name(user.getLast_name())
                 .email(user.getEmail())
+                .phone(user.getPhone())
                 .roles(user.getRoles())
                 .token("")
                 .build();

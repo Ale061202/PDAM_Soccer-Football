@@ -11,6 +11,7 @@ import Foundation
 struct User: Codable {
     let username: String?
     let avatar: String?
-    let firstName, email, lastName, phone: String?
+    let firstName, email, lastName: String?
+    let phone : Int?
     let roles: [String]?
 }
