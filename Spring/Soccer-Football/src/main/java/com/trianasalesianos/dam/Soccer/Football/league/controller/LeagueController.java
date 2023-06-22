@@ -227,40 +227,6 @@ public class LeagueController {
 
     }
 
-    @Operation(summary = "Add a Team")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201",
-                    description = "Added a Team to a League",
-                    content = {@Content(mediaType = "application/json",
-                            array = @ArraySchema(schema = @Schema(implementation = League.class)),
-                            examples = {@ExampleObject(
-                                    value = """
-                                            [
-                                                  {
-                                                       "id": 2,
-                                                       "league_name": "La Liga",
-                                                       "teams": [
-                                                           {
-                                                               "id": 1,
-                                                               "teamName": "Betis"
-                                                           }
-                                                       ]
-                                                   }
-                                             ]                                         
-                                            """
-                            )}
-                    )}),
-            @ApiResponse(responseCode = "400",
-                    description = "No Team Addition",
-                    content = @Content),
-    })
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/{leagueID}/team/{teamId}")
-    public ResponseEntity<GetLeagueDto> addTeamLeague(@PathVariable Long leagueID, @PathVariable Long teamId){
-        return ResponseEntity.status(HttpStatus.CREATED).body(leagueService.addTeam(leagueID,teamId));
-    }
-
     @Operation(summary = "Update a leagueName of League")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
