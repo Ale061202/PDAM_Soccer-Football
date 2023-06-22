@@ -53,13 +53,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/comment/1",
+							"raw": "{{baseUrl}}/comment/36",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"comment",
-								"1"
+								"36"
 							]
 						}
 					},
@@ -229,36 +229,6 @@
 					"response": []
 				},
 				{
-					"name": "POST Add Team To League",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/league/5/team/14",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"league",
-								"5",
-								"team",
-								"14"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "PUT Modify a League",
 					"request": {
 						"auth": {
@@ -311,13 +281,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/league/1",
+							"raw": "{{baseUrl}}/league/73",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"league",
-								"1"
+								"73"
 							]
 						}
 					},
@@ -372,13 +342,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/player/1",
+							"raw": "{{baseUrl}}/player/44",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"player",
-								"1"
+								"44"
 							]
 						}
 					},
@@ -401,7 +371,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Sergio Canales\",\r\n    \"age\" : 32,\r\n    \"position\" : \"midfielder\",\r\n    \"height\" : 176,\r\n    \"weight\" : 65,\r\n    \"jerseyNumber\" : 10\r\n}",
+							"raw": "{\r\n    \"name\" : \"Harry Kane\",\r\n    \"age\" : 37,\r\n    \"position\" : \"Delantero\",\r\n    \"height\" : 184,\r\n    \"weight\" : 82,\r\n    \"jerseyNumber\" : 4,\r\n    \"country\" : \"Inglaterra\",\r\n    \"idTeam\" : 13\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -438,7 +408,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Sergio Ramos\",\r\n    \"age\" : 37,\r\n    \"position\" : \"defender\",\r\n    \"height\" : 184,\r\n    \"weight\" : 82,\r\n    \"jerseyNumber\" : 4\r\n}",
+							"raw": "{\r\n    \"name\" : \"Sergio Ramos\",\r\n    \"age\" : 37,\r\n    \"position\" : \"Defensa\",\r\n    \"height\" : 184,\r\n    \"weight\" : 82,\r\n    \"jerseyNumber\" : 4,\r\n    \"country\" : \"Alemania\",\r\n    \"idTeam\" : 13\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -446,13 +416,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/player/",
+							"raw": "{{baseUrl}}/player/44",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"player",
-								""
+								"44"
 							]
 						}
 					},
@@ -555,13 +525,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/post/1",
+							"raw": "{{baseUrl}}/post/34",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"post",
-								"1"
+								"34"
 							]
 						}
 					},
@@ -594,7 +564,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/aleja/Downloads/logo.png"
+									"src": "/Users/alejandro/Downloads/logoWindows.png"
 								}
 							]
 						},
@@ -636,6 +606,34 @@
 								"34",
 								"comment",
 								"35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/download/logoWindows.png",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"download",
+								"logoWindows.png"
 							]
 						}
 					},
@@ -719,7 +717,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"teamName\" : \"Rayo de Barcelona\"\r\n}",
+							"raw": "{\r\n    \"teamName\" : \"Barcelona B\",\r\n    \"idLeague\" : 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -727,13 +725,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/team/",
+							"raw": "{{baseUrl}}/team/create",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"team",
-								""
+								"create"
 							]
 						}
 					},
@@ -756,7 +754,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"teamName\" : \"Betis\"\r\n}",
+							"raw": "{\r\n    \"teamName\" : \"Betis\",\r\n    \"idLeague\" : 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -764,13 +762,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/team/2",
+							"raw": "{{baseUrl}}/team/10",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"team",
-								"2"
+								"10"
 							]
 						}
 					},
@@ -816,7 +814,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"ale2\",\r\n    \"avatar\" : \"https://robohash.org/ale\",\r\n    \"password\" : \"1234\",\r\n    \"first_name\" : \"Alejandro\",\r\n    \"last_name\" : \"Fernandez\",\r\n    \"phone\" : \"618123995\",\r\n    \"email\" : \"fernandezgoale21@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\" : \"ale2\",\r\n    \"avatar\" : \"https://robohash.org/ale\",\r\n    \"password\" : \"1234\",\r\n    \"first_name\" : \"Alejandro\",\r\n    \"last_name\" : \"Fernandez\",\r\n    \"phone\" : 618123995,\r\n    \"email\" : \"fernandezgoale21@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -886,7 +884,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"ale\",\r\n    \"password\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"username\": \"ale1234\",\r\n    \"password\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -913,7 +911,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"admin1234\",\r\n    \"password\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -971,7 +969,7 @@
 					"response": []
 				},
 				{
-					"name": "POST Add Team To User",
+					"name": "Get Current User",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -983,18 +981,16 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/user/{{id}}/team/1",
+							"raw": "{{baseUrl}}/user/me",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"user",
-								"{{id}}",
-								"team",
-								"1"
+								"me"
 							]
 						}
 					},
